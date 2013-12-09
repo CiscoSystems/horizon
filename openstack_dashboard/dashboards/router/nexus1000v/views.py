@@ -139,4 +139,6 @@ class UpdateNetworkProfileView(forms.ModalFormView):
                 'name': profile['name'],
                 'segment_range': profile['segment_range'],
                 'segment_type': profile['segment_type'],
-                'physical_network': profile['physical_network']}
+                'physical_network': profile['physical_network'],
+                'sub_type': profile['sub_type'],
+                'multicast_ip_range': profile['multicast_ip_range']}
