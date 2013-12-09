@@ -63,9 +63,12 @@ def _get_profiles(request, type_p):
         bindings_dict = datastructures.SortedDict(
             [(b.profile_id, b.tenant_id) for b in bindings])
         for p in profiles:
-            project_id = bindings_dict.get(p.id)
-            project = tenant_dict.get(project_id)
-            p.project_name = getattr(project, 'name', None)
+        # Set project name
+            if bindings:
+                for b in bindings:
+                    if (p.id == b.profile_id):
+                        project = tenant_dict.get(b.tenant_id, None)
+                        p.project_name = getattr(project, 'name', None)
     return profiles
 
 
