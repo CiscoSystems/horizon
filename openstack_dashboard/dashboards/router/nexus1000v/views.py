@@ -138,10 +138,21 @@ class UpdateNetworkProfileView(forms.ModalFormView):
 
     def get_initial(self):
         profile = self._get_object()
+        if profile:
+            tenant_dict = _get_tenant_list(self.request)
+            bindings = api.neutron.profile_bindings_list(self.request,
+                                                         'network')
+            # Set tenant name
+            if bindings:
+                for b in bindings:
+                    if (profile.id == b.profile_id):
+                        project = tenant_dict.get(b.tenant_id, None)
+                        project_name = getattr(project, 'name', None)
         return {'profile_id': profile['id'],
                 'name': profile['name'],
                 'segment_range': profile['segment_range'],
                 'segment_type': profile['segment_type'],
                 'physical_network': profile['physical_network'],
                 'sub_type': profile['sub_type'],
-                'multicast_ip_range': profile['multicast_ip_range']}
+                'multicast_ip_range': profile['multicast_ip_range'],
+                'project': project_name}

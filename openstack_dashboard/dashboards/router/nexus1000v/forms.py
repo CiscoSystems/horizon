@@ -218,7 +218,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                                                  'data-switch-on': 'segtype',
                                                  'data-segtype-overlay':
                                                      _("Multicast IP Range")}))
-    project_id = forms.CharField(label=_("Project"), required=False)
+    project = forms.CharField(label=_("Project"), required=False)
 
     def handle(self, request, data):
         try:
