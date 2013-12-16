@@ -209,7 +209,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                                                'data-switch-on': 'segtype',
                                                'data-segtype-vlan':
                                                    _("Physical Network"),
-                                               'readonly': 'readonly'})))
+                                               'readonly': 'readonly'}))
     multicast_ip_range = forms.CharField(max_length=30,
                                          label=_("Multicast IP Range"),
                                          required=False,
@@ -238,7 +238,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
             return profile
         except Exception:
             msg = _('Failed to update network profile '
-                    '(%s).' % data['profile_id']
+                    '(%s).' % data['profile_id'])
             LOG.error(msg)
             redirect = reverse('horizon:router:nexus1000v:index')
             exceptions.handle(request, msg, redirect=redirect)
