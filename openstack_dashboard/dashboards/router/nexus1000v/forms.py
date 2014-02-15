@@ -31,7 +31,8 @@ LOG = logging.getLogger(__name__)
 
 
 def get_tenant_choices(request):
-    tenant_choices = [('', _("Select a tenant"))]
+#    tenant_choices = [('', _("Select a tenant"))]
+    tenant_choices = []
     tenants = []
     try:
         tenants, has_more = api.keystone.tenant_list(request)
@@ -121,8 +122,8 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                                'data-switch-on': 'segtype',
                                                'data-segtype-vlan':
                                                    _("Physical Network")}))
-    project = forms.ChoiceField(label=_("Project"),
-                                required=False)
+    project = forms.MultipleChoiceField(label=_("Project"),
+                                        required=False,widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkProfile, self).__init__(request, *args, **kwargs)
@@ -159,7 +160,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                       'segment_range': data['segment_range'],
                       'physical_network': data['physical_network'],
                       'multicast_ip_range': data['multicast_ip_range'],
-                      'tenant_id': data['project']}
+                      'add_tenants': data['project']}
             profile = api.neutron.profile_create(request,
                                                  **params)
             msg = _('Network Profile %s '
@@ -218,7 +219,14 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                                                  'data-switch-on': 'segtype',
                                                  'data-segtype-overlay':
                                                      _("Multicast IP Range")}))
-    project = forms.CharField(label=_("Project"), required=False)
+    # fenzhang: temp fix, need to render this widget
+    project = forms.MultipleChoiceField(label=_("Project"), required=False,
+                              widget=forms.CheckboxSelectMultiple)
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateNetworkProfile, self).__init__(request, *args, **kwargs)
+        self.fields['project'].choices = get_tenant_choices(request)
+#        messages.info(request, _('initial values %s' % self.initial))
 
     def handle(self, request, data):
         try:
@@ -230,10 +238,12 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                                                  segment_range=
                                                  data['segment_range'],
                                                  multicast_ip_range=
-                                                 data['physical_network'])
+                                                 data['multicast_ip_range'],
+                                                 add_tenants=
+                                                 data['project'],
+                                                 )
             msg = _('Network Profile %s '
                     'was successfully updated.') % data['profile_id']
-            LOG.debug(msg)
             messages.success(request, msg)
             return profile
         except Exception:

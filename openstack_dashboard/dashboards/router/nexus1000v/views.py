@@ -64,11 +64,13 @@ def _get_profiles(request, type_p):
             [(b.profile_id, b.tenant_id) for b in bindings])
         for p in profiles:
         # Set project name
+            p.project_name = ''
             if bindings:
                 for b in bindings:
                     if (p.id == b.profile_id):
                         project = tenant_dict.get(b.tenant_id, None)
-                        p.project_name = getattr(project, 'name', None)
+                        if project:
+                            p.project_name += getattr(project, 'name', None) + ' '
     return profiles
 
 
@@ -144,10 +146,13 @@ class UpdateNetworkProfileView(forms.ModalFormView):
                                                          'network')
             # Set tenant name
             if bindings:
+                project_id = []
+                project_name = []
                 for b in bindings:
                     if (profile.id == b.profile_id):
                         project = tenant_dict.get(b.tenant_id, None)
-                        project_name = getattr(project, 'name', None)
+                        project_id.append(getattr(project, 'id', None))
+                        project_name.append(getattr(project, 'name', None))
         return {'profile_id': profile['id'],
                 'name': profile['name'],
                 'segment_range': profile['segment_range'],
@@ -155,4 +160,4 @@ class UpdateNetworkProfileView(forms.ModalFormView):
                 'physical_network': profile['physical_network'],
                 'sub_type': profile['sub_type'],
                 'multicast_ip_range': profile['multicast_ip_range'],
-                'project': project_name}
+                'project': project_id}
