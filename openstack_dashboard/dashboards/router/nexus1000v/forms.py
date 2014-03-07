@@ -61,24 +61,24 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                              'data-slug': 'segtype'}))
     # Sub type options available for Overlay segment type
     sub_type = forms.ChoiceField(label=_('Sub Type'),
-                                 choices=[('native_vxlan', _('Native VXLAN')),
-                                          ('enhanced', _('Enhanced VXLAN')),
-                                          ('other', _('Other'))],
+                                 choices=[('native_vxlan', _('NATIVE VXLAN')),
+                                          ('enhanced', _('ENHANCED')),
+                                          ('other', _('OTHER'))],
                                  required=False,
                                  widget=forms.Select
                                  (attrs={'class': 'switchable switched',
                                          'data-slug': 'subtype',
                                          'data-switch-on': 'segtype',
                                          'data-segtype-overlay':
-                                             _("Sub Type")}))
+                                             _('Sub Type')}))
     # Sub type options available for Trunk segment type
     sub_type_trunk = forms.ChoiceField(label=_('Sub Type'),
-                                 choices=[('vlan', _('VLAN'))],
-                                 required=False,
-                                 widget=forms.Select
-                                 (attrs={'class': 'switched',
-                                         'data-switch-on': 'segtype',
-                                         'data-segtype-trunk': _("Sub Type")}))
+                                choices=[('vlan', _('VLAN'))],
+                                required=False,
+                                widget=forms.Select
+                                (attrs={'class': 'switched',
+                                        'data-switch-on': 'segtype',
+                                        'data-segtype-trunk': _("Sub Type")}))
     segment_range = forms.CharField(max_length=255,
                                     label=_("Segment Range"),
                                     required=False,
@@ -100,20 +100,20 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                                      'subtype',
                                                  'data-subtype-native_vxlan':
                                                      _("Multicast IP Range")}),
-                                         help_text=_("Multicast IPv4 range"
-                                                     "(e.g. 224.0.0.0-"
-                                                     "224.0.0.100)"))
+                                          help_text=_("Multicast IPv4 range"
+                                                      "(e.g. 224.0.0.0-"
+                                                      "224.0.0.100"))
     other_subtype = forms.CharField(max_length=255,
-                                    label=_("Sub Type Value (Manual Input)"),
-                                    required=False,
-                                    widget=forms.TextInput
-                                    (attrs={'class': 'switched',
-                                            'data-switch-on':
-                                                'subtype',
-                                            'data-subtype-other':
-                                                _("Sub Type Value "
-                                                  "(Manual Input)")}),
-                            help_text=_("Enter parameter (e.g. GRE)"))
+                                   label=_("Sub Type Value (Manual Input)"),
+                                   required=False,
+                                   widget=forms.TextInput
+                                   (attrs={'class': 'switched',
+                                           'data-switch-on':
+                                               'subtype',
+                                           'data-subtype-other': 
+                                               _("Sub Type Value "
+                                                 "(Manual Input)")}),
+                                   help_text=_("Enter parameter (e.g.GRE)"))
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False,
@@ -130,7 +130,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
         self.fields['project'].choices = get_tenant_choices(request)
 
     def clean(self):
-        # If sub_type is 'other' or 'trunk' then
+        # If sub_type is 'other' or 'trunk' then 
         # assign this new value for sub_type
         cleaned_data = super(CreateNetworkProfile, self).clean()
 
@@ -147,7 +147,6 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
             cleaned_data['sub_type'] = sub_type_trunk
             LOG.debug('subtype is now %(params)s',
                       {'params': sub_type_trunk})
-
         return cleaned_data
 
     def handle(self, request, data):
