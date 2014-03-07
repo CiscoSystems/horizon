@@ -725,17 +725,18 @@ class LaunchInstance(workflows.Workflow):
                           "%(netid)s %(profile_id)s",
                           {'netid': nid, 
                            'profile_id': context['profile_id']})
-            try:
-                port = api.neutron.port_create(request, nid,
-                                               policy_profile_id=
-                                               context['profile_id'])
-            except Exception:
-                msg = (_('Port not created for profile-id (%s).') %
-                       context['profile_id'])
-                exceptions.handle(request, msg)
+                port = None
+                try:
+                    port = api.neutron.port_create(request, nid,
+                                                   policy_profile_id=
+                                                   context['profile_id'])
+                except Exception:
+                    msg = (_('Port not created for profile-id (%s).') %
+                           context['profile_id'])
+                    exceptions.handle(request, msg)
 
-            if port and port.id:
-                nics.append({"port-id": port.id})
+                if port and port.id:
+                    nics.append({"port-id": port.id})
 
         try:
             api.nova.server_create(request,
