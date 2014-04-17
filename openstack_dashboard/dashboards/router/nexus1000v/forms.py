@@ -200,7 +200,15 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
     segment_range = forms.CharField(max_length=255,
                                     label=_("Segment Range"),
                                     required=False,
-                                    help_text=_("1-4093 for VLAN"))
+                                    widget=forms.TextInput
+                                    (attrs={'class': 'switched',
+                                            'data-switch-on': 'segtype',
+                                            'data-segtype-vlan':
+                                                _("Segment Range"),
+                                            'data-segtype-overlay':
+                                                _("Segment Range")}),
+                                    help_text=_("1-4093 for VLAN; "
+                                                "5000-10000 for Overlay"))
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False,
