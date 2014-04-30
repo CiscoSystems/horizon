@@ -184,19 +184,23 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                            label=_("Name"), required=True)
     segment_type = forms.ChoiceField(label=_('Segment Type'),
                                      choices=[('vlan', 'VLAN'),
-                                              ('overlay', 'OVERLAY')],
+                                              ('overlay', 'OVERLAY'),
+                                              ('trunk', 'TRUNK')],
                                      widget=forms.Select
                                      (attrs={'class': 'switchable',
                                              'data-slug': 'segtype',
                                              'readonly': 'readonly'}))
-    sub_type = forms.CharField(label=_('Sub Type'),
+    sub_type = forms.CharField(max_length=255,
+                               label=_('Sub Type'),
                                required=False,
-                               widget=forms.Select
-                               (attrs={'class': 'switched',
-                                       'data-switch-on': 'segtype',
-                                       'data-segtype-overlay':
-                                           _("Sub Type"),
-                                       'readonly': 'readonly'}))
+                               widget=forms.TextInput(attrs={
+                                      'readonly': 'readonly'}))
+                               #widget=forms.Select
+                               #(attrs={'class': 'switched',
+                               #        'data-switch-on': 'segtype',
+                               #        'data-segtype-overlay':
+                               #            _("Sub Type"),
+                               #        'readonly': 'readonly'}))
     segment_range = forms.CharField(max_length=255,
                                     label=_("Segment Range"),
                                     required=False,
