@@ -71,6 +71,9 @@
     <dd>
       {% for ip in ip_list %}
         {% if not forloop.last %}{{ ip.addr}},&nbsp;{% else %}{{ip.addr}}{% endif %}
+        {% if ip.policy_profile %}
+          &nbsp;(Policy Profile: {{ ip.policy_profile.name }})
+        {% endif %}
       {% endfor %}
     </dd>
     {% endfor %}

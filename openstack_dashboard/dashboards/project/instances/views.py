@@ -314,6 +314,20 @@ class DetailView(tabs.TabView):
                 _('Unable to retrieve IP addresses from Neutron for instance '
                   '"%s".') % instance_id, ignore=True)
 
+        # Getting policy profiles info when cisco plugin is enabled
+        if api.neutron.is_port_profiles_supported():
+            interfaces = api.neutron.port_list(self.request,
+                                                        device_id=instance_id)
+            for network, ip_list in instance.addresses.items():
+                for ip in ip_list:
+                    for interface in interfaces:
+                        if interface['mac_address'] == \
+                           ip['OS-EXT-IPS-MAC:mac_addr']:
+                            ip['policy_profile'] = api.neutron.policy_profile_get(
+                                                   self.request,
+                                                   interface['n1kv:profile_id']
+                                                   )
+                            break
         return instance
 
     def get_tabs(self, request, *args, **kwargs):
