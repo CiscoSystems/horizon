@@ -112,6 +112,14 @@ class Profile(NeutronAPIDictWrapper):
         super(Profile, self).__init__(apiresource)
 
 
+class PolicyProfile(NeutronAPIDictWrapper):
+    """Wrapper for cisco n1kv policy profiles."""
+    _attrs = ['id', 'name']
+
+    def __init__(self, apiresource):
+        super(PolicyProfile, self).__init__(apiresource)
+
+
 class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
 
@@ -665,6 +673,15 @@ def profile_bindings_list(request, type_p, **params):
         bindings = neutronclient(request).list_policy_profile_bindings(
             **params).get('policy_profile_bindings')
     return [Profile(n) for n in bindings]
+
+
+def policy_profile_get(request, policy_profile_id, **params):
+    LOG.debug("policy_profile_get(): "
+              "policy_profile_id=%s params=%s" %
+              (policy_profile_id, params))
+    policy_profile = neutronclient(request).show_policy_profile(
+                     policy_profile_id, **params).get('policy_profile')
+    return PolicyProfile(policy_profile)
 
 
 def router_create(request, **kwargs):
