@@ -701,6 +701,8 @@ class SetNetworkAction(workflows.Action):
         profiles = []
         try:
             profiles = api.neutron.profile_list(request, type_p)
+            profile_list = [('', 'No Policy Profile')]
+            profile_list.extend([(profile.id, profile.name) for profile in profiles])
         except Exception:
             msg = _('Network Profiles could not be retrieved.')
             exceptions.handle(request, msg)
@@ -860,9 +862,12 @@ class LaunchInstance(workflows.Workflow):
                            'profile_id': context['profile_id']})
                 port = None
                 try:
-                    port = api.neutron.port_create(request, nid,
+                    if context['profile_id']:
+                        port = api.neutron.port_create(request, nid,
                                                    policy_profile_id=
                                                    context['profile_id'])
+                    else:
+                        port = api.neutron.port_create(request, nid)
                 except Exception:
                     msg = (_('Port not created for profile-id (%s).') %
                            context['profile_id'])
