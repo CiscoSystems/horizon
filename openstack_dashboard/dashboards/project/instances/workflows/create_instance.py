@@ -598,7 +598,8 @@ class SetNetworkAction(workflows.Action):
     def populate_profile_choices(self, request, context):
         try:
             profiles = api.neutron.profile_list(request, 'policy')
-            profile_list = [(profile.id, profile.name) for profile in profiles]
+            profile_list = [('', 'No Policy Profile')]
+            profile_list.extend([(profile.id, profile.name) for profile in profiles])
         except Exception:
             profile_list = []
             exceptions.handle(request, _("Unable to retrieve profiles."))
@@ -727,9 +728,12 @@ class LaunchInstance(workflows.Workflow):
                            'profile_id': context['profile_id']})
                 port = None
                 try:
-                    port = api.neutron.port_create(request, nid,
+                    if context['profile_id']:
+                        port = api.neutron.port_create(request, nid,
                                                    policy_profile_id=
                                                    context['profile_id'])
+                    else:
+                        port = api.neutron.port_create(request, nid)
                 except Exception:
                     msg = (_('Port not created for profile-id (%s).') %
                            context['profile_id'])
