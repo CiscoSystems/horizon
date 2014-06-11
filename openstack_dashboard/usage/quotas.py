@@ -52,8 +52,10 @@ NEUTRON_QUOTA_FIELDS = ("network",
                         "port",
                         "router",
                         "floatingip",
-                        "security_group",
-                        "security_group_rule",
+#TODO(aaron): temporary fix for CSCuo96567.
+#restore security_group when it's implemented in cisco neutron plugin
+#                        "security_group",
+#                        "security_group_rule",
                         )
 
 QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS + NEUTRON_QUOTA_FIELDS
