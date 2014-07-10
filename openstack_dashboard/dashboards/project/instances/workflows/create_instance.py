@@ -895,4 +895,13 @@ class LaunchInstance(workflows.Workflow):
             return True
         except Exception:
             exceptions.handle(request)
+            if api.neutron.is_port_profiles_supported():
+                for nic in nics:
+                    try:
+                        api.neutron.port_delete(request, nic['port-id'])
+                    except Exception:
+                        msg = (_('Port not deleted for port-id (%s).') %
+                           nic['port-id'])
+                        exceptions.handle(request, msg)
+                        return False
             return False
