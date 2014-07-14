@@ -501,7 +501,10 @@ class SetAccessControlsAction(workflows.Action):
     def populate_groups_choices(self, request, context):
         try:
             groups = api.network.security_group_list(request)
-            security_group_list = [(sg.name, sg.name) for sg in groups]
+            if api.neutron.is_port_profiles_supported():
+                security_group_list = [(sg.id, sg.name) for sg in groups]
+            else:
+                security_group_list = [(sg.name, sg.name) for sg in groups]
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve list of security groups'))
@@ -731,7 +734,9 @@ class LaunchInstance(workflows.Workflow):
                     if context['profile_id']:
                         port = api.neutron.port_create(request, nid,
                                                    policy_profile_id=
-                                                   context['profile_id'])
+                                                   context['profile_id'],
+                                                   security_groups=
+                                                   context['security_group_ids'])
                     else:
                         port = api.neutron.port_create(request, nid)
                 except Exception:
