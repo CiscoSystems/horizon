@@ -90,7 +90,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                             'data-segtype-overlay':
                                                 _("Segment Range")}),
                                     help_text=_("1-4093 for VLAN; "
-                                                "5000-10000 for Overlay"))
+                                                "5000 and above for Overlay"))
     multicast_ip_range = forms.CharField(max_length=30,
                                          label=_("Multicast IP Range"),
                                          required=False,
