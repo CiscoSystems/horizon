@@ -503,6 +503,7 @@ class SetAccessControlsAction(workflows.Action):
             groups = api.network.security_group_list(request)
             if api.neutron.is_port_profiles_supported():
                 security_group_list = [(sg.id, sg.name) for sg in groups]
+                self.fields['groups'].initial = {security_group_list[0][0]: True}
             else:
                 security_group_list = [(sg.name, sg.name) for sg in groups]
         except Exception:
