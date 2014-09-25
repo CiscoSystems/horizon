@@ -130,7 +130,7 @@ class UpdateNetworkProfileView(forms.ModalFormView):
         profile_id = self.kwargs['profile_id']
         try:
             profile = api.neutron.profile_get(self.request,
-                                                   profile_id)
+                                              profile_id)
             LOG.debug("Network Profile object=%s", profile)
             return profile
         except Exception:
@@ -140,19 +140,20 @@ class UpdateNetworkProfileView(forms.ModalFormView):
 
     def get_initial(self):
         profile = self._get_object()
-        if profile:
-            tenant_dict = _get_tenant_list(self.request)
-            bindings = api.neutron.profile_bindings_list(self.request,
-                                                         'network')
-            # Set tenant name
-            if bindings:
-                project_id = []
-                project_name = []
-                for b in bindings:
-                    if (profile.id == b.profile_id):
-                        project = tenant_dict.get(b.tenant_id, None)
-                        project_id.append(getattr(project, 'id', None))
-                        project_name.append(getattr(project, 'name', None))
+        # Set project name
+        tenant_dict = _get_tenant_list(self.request)
+        try:
+            bindings = api.neutron.profile_bindings_list(
+                self.request, 'network')
+        except Exception:
+            msg = _('Failed to obtain network profile binding')
+            redirect = self.success_url
+            exceptions.handle(self.request, msg, redirect=redirect)
+        bindings_dict = datastructures.SortedDict(
+            [(b.profile_id, b.tenant_id) for b in bindings])
+        project_id = bindings_dict.get(profile.id)
+        project = tenant_dict.get(project_id)
+        project_name = getattr(project, 'name', project_id)
         return {'profile_id': profile['id'],
                 'name': profile['name'],
                 'segment_range': profile['segment_range'],
@@ -160,4 +161,4 @@ class UpdateNetworkProfileView(forms.ModalFormView):
                 'physical_network': profile['physical_network'],
                 'sub_type': profile['sub_type'],
                 'multicast_ip_range': profile['multicast_ip_range'],
-                'project': project_id}
+                'project': project_name}
