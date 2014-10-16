@@ -101,8 +101,8 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                                  'data-subtype-native_vxlan':
                                                      _("Multicast IP Range")}),
                                          help_text=_("Multicast IPv4 range"
-                                                     "(e.g. 224.0.1.0-"
-                                                     "224.0.1.100)"))
+                                                     "(e.g. 224.0.0.0-"
+                                                     "239.255.255.255)"))
     other_subtype = forms.CharField(max_length=255,
                                    label=_("Sub Type Value (Manual Input)"),
                                    required=False,
