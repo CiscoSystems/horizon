@@ -19,7 +19,7 @@
     <p><strong>{% trans "Name" %}</strong>: {% blocktrans %} Select a name for your network profile.{% endblocktrans %}</p>
     <p><strong>{% trans "Segment Type" %}</strong>: {% blocktrans %} Segment types available are VLAN, OVERLAY and TRUNK.{% endblocktrans %}</p>
     <p><strong>{% trans "Segment Sub Type" %}</strong>: {% blocktrans %} Sub types available are for the Overlay and TRUNK segments. Available sub-types for overlay are: native_vxlan, enhanced or 'other' (eg. GRE) which can be manually inputed as a text parameter for subtype. Available sub-types for trunk are: vlan{% endblocktrans %}</p>
-    <p><strong>{% trans "Segment Range" %}</strong>: {% blocktrans %} Segment Ranges are 1-4093 for VLAN and above 5000 for enhanced overlay.{% endblocktrans %}</p>
+    <p><strong>{% trans "Segment Range" %}</strong>: {% blocktrans %} Segment Ranges are 1-4093 for VLAN and 4096 - 16000000 for enhanced overlay.{% endblocktrans %}</p>
 </div>
 {% endblock %}
 

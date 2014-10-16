@@ -90,7 +90,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                             'data-segtype-overlay':
                                                 _("Segment Range")}),
                                     help_text=_("1-4093 for VLAN; "
-                                                "5000 and above for Overlay"))
+                                                "4096 - 16000000 for Overlay"))
     multicast_ip_range = forms.CharField(max_length=30,
                                          label=_("Multicast IP Range"),
                                          required=False,
@@ -102,7 +102,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                                      _("Multicast IP Range")}),
                                           help_text=_("Multicast IPv4 range"
                                                       "(e.g. 224.0.0.0-"
-                                                      "224.0.0.100"))
+                                                      "239.255.255.255"))
     other_subtype = forms.CharField(max_length=255,
                                    label=_("Sub Type Value (Manual Input)"),
                                    required=False,
@@ -212,7 +212,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
                                             'data-segtype-overlay':
                                                 _("Segment Range")}),
                                     help_text=_("1-4093 for VLAN; "
-                                                "5000-10000 for Overlay"))
+                                                "4096 - 16000000 for Overlay"))
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False,
