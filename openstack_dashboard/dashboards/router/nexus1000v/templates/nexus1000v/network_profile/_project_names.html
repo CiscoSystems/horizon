@@ -1,0 +1,9 @@
+{% for project in projects %}
+<ul>
+  <li>
+    {% if project.name|length > 0 %}
+      {{ project.name }}
+    {% endif %}
+  </li>
+</ul>
+{% endfor %}

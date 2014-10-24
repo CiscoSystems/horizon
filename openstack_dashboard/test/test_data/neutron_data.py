@@ -902,7 +902,7 @@ def data(TEST):
                         'multicast_ip_range': '144.0.0.0-144.0.0.100',
                         'id':
                         '00000000-2222-2222-2222-000000000000',
-                        'project': '1',
+                        'projects': ['1'],
                         # overlay profiles have no physical_network
                         'physical_network': None}
 
@@ -927,7 +927,7 @@ def data(TEST):
                         'segment_range': '11000-11100',
                         'id':
                         '00000000-3333-3333-3333-000000000000',
-                        'project': '1'}
+                        'projects': ['1']}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
@@ -948,7 +948,7 @@ def data(TEST):
                         'sub_type_trunk': 'vlan',
                         'id':
                         '00000000-4444-4444-4444-000000000000',
-                        'project': '1'}
+                        'projects': ['1']}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))

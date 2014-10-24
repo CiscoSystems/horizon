@@ -18,6 +18,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django import template
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -56,10 +57,16 @@ class EditNetworkProfile(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
 
+def _get_projects(profile):
+    template_name = 'router/nexus1000v/network_profile/_project_names.html'
+    context = {'projects': profile.projects}
+    return template.loader.render_to_string(template_name, context)
+
+
 class NetworkProfile(tables.DataTable):
-    id = tables.Column("id", hidden=True)
+    id = tables.Column("id", verbose_name=_("Profile ID"), hidden=True)
     name = tables.Column("name", verbose_name=_("Network Profile"), )
-    project = tables.Column("project_name", verbose_name=_("Project"))
+    projects = tables.Column(_get_projects, verbose_name=_("Projects"))
     segment_type = tables.Column("segment_type",
                                  verbose_name=_("Segment Type"))
     sub_type = tables.Column("sub_type",
@@ -79,7 +86,7 @@ class NetworkProfile(tables.DataTable):
 
 
 class PolicyProfile(tables.DataTable):
-    id = tables.Column("id", hidden=True)
+    id = tables.Column("id", verbose_name=_("Profile ID"), hidden=True)
     name = tables.Column("name", verbose_name=_("Policy Profile"), )
     project = tables.Column("project_name", verbose_name=_("Project"))
 
