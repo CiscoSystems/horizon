@@ -193,12 +193,21 @@ class UpdateNetworkProfile(CreateNetworkProfile):
 
     def handle(self, request, data):
         try:
+             existing_tenants = []
+             bindings = api.neutron.profile_bindings_list(request, "network")
+             for b in bindings:
+                 if b.profile_id == data['profile_id']:
+                     existing_tenants.append(b.tenant_id)
+             removed_tenants = filter(lambda x: x not in data['projects'], existing_tenants)
+
+
             LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
             params = {'name': data['name'],
                       'segment_range': data['segment_range'],
                       'multicast_ip_range': data['multicast_ip_range'],
-                      'add_tenants': data['projects']}
+                      'add_tenants': data['projects'],
+                      'remove_tenants': removed_tenants}
             profile = api.neutron.profile_update(request,
                                                  data['profile_id'],
                                                  **params)
