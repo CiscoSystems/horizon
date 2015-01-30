@@ -190,22 +190,31 @@ class UpdateNetworkProfile(CreateNetworkProfile):
 
     def handle(self, request, data):
         try:
-            LOG.debug('request = %(req)s, params = %(params)s',
+             existing_tenants = []
+             bindings = api.neutron.profile_bindings_list(request, "network")
+             for b in bindings:
+                 if b.profile_id == data['profile_id']:
+                     existing_tenants.append(b.tenant_id)
+             removed_tenants = filter(lambda x: x not in data['projects'], existing_tenants)
+
+
+             LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
-            params = {'name': data['name'],
-                      'segment_range': data['segment_range'],
-                      'multicast_ip_range': data['multicast_ip_range'],
-                      'add_tenants': data['projects']}
-            profile = api.neutron.profile_update(request,
+             params = {'name': data['name'],
+                       'segment_range': data['segment_range'],
+                       'multicast_ip_range': data['multicast_ip_range'],
+                       'add_tenants': data['projects'],
+                       'remove_tenants': removed_tenants}
+             profile = api.neutron.profile_update(request,
                                                  data['profile_id'],
                                                  **params)
-            msg = _('Network Profile %s '
+             msg = _('Network Profile %s '
                     'was successfully updated.') % data['profile_id']
-            messages.success(request, msg)
-            return profile
+             messages.success(request, msg)
+             return profile
         except Exception:
-            msg = _('Failed to update '
+             msg = _('Failed to update '
                     'network profile (%s).') % data['name']
-            redirect = reverse('horizon:router:nexus1000v:index')
-            exceptions.handle(request, msg, redirect=redirect)
-            return False
+             redirect = reverse('horizon:router:nexus1000v:index')
+             exceptions.handle(request, msg, redirect=redirect)
+             return False
