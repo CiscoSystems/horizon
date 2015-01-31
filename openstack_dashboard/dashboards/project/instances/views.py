@@ -325,7 +325,7 @@ class DetailView(tabs.TabView):
                            ip['OS-EXT-IPS-MAC:mac_addr']:
                             ip['policy_profile'] = api.neutron.policy_profile_get(
                                                    self.request,
-                                                   interface['n1kv:profile_id']
+                                                   interface['n1kv:profile']
                                                    )
                             break
         return instance
