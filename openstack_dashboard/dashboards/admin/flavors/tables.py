@@ -111,7 +111,5 @@ class FlavorsTable(tables.DataTable):
         name = "flavors"
         verbose_name = _("Flavors")
         table_actions = (FlavorFilterAction, CreateFlavor, DeleteFlavor)
-        row_actions = (UpdateFlavor,
-                       ModifyAccess,
-                       ViewFlavorExtras,
+        row_actions = (ViewFlavorExtras,
                        DeleteFlavor)
