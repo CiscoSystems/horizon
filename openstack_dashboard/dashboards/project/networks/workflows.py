@@ -36,7 +36,7 @@ class CreateNetworkInfoAction(workflows.Action):
     net_name = forms.CharField(max_length=255,
                                label=_("Network Name"),
                                required=False)
-    if api.neutron.is_port_profiles_supported():
+    if api.neutron.is_network_profiles_supported():
         widget = None
     else:
         widget = forms.HiddenInput()
@@ -53,7 +53,7 @@ class CreateNetworkInfoAction(workflows.Action):
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkInfoAction, self).__init__(request,
                                                       *args, **kwargs)
-        if api.neutron.is_port_profiles_supported():
+        if api.neutron.is_network_profiles_supported():
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
 
@@ -324,7 +324,7 @@ class CreateNetwork(workflows.Workflow):
         try:
             params = {'name': data['net_name'],
                       'admin_state_up': (data['admin_state'] == 'True')}
-            if api.neutron.is_port_profiles_supported():
+            if api.neutron.is_network_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)
             network.set_id_as_name_if_empty()

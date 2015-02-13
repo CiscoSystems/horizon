@@ -37,7 +37,7 @@ class CreateNetwork(forms.SelfHandlingForm):
                            label=_("Name"),
                            required=False)
     tenant_id = forms.ChoiceField(label=_("Project"))
-    if api.neutron.is_port_profiles_supported():
+    if api.neutron.is_network_profiles_supported():
         widget = None
     else:
         widget = forms.HiddenInput()
@@ -94,7 +94,7 @@ class CreateNetwork(forms.SelfHandlingForm):
                 tenant_choices.append((tenant.id, tenant.name))
         self.fields['tenant_id'].choices = tenant_choices
 
-        if api.neutron.is_port_profiles_supported():
+        if api.neutron.is_network_profiles_supported():
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
 
@@ -168,7 +168,7 @@ class CreateNetwork(forms.SelfHandlingForm):
                       'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
-            if api.neutron.is_port_profiles_supported():
+            if api.neutron.is_network_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']
             if api.neutron.is_extension_supported(request, 'provider'):
                 network_type = data['network_type']

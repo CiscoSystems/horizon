@@ -90,8 +90,11 @@ class IndexTabGroup(tabs.TabGroup):
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (profiletables.NetworkProfile,
-                     profiletables.PolicyProfile,)
+    if api.neutron.is_network_profiles_supported():
+        table_classes = (profiletables.NetworkProfile,
+                         profiletables.PolicyProfile,)
+    else:
+        table_classes = (profiletables.PolicyProfile,)
     template_name = 'router/nexus1000v/index.html'
 
     def get_network_profile_data(self):

@@ -192,6 +192,10 @@ OPENSTACK_NEUTRON_NETWORK = {
     # profile_support can be turned on if needed.
     'profile_support': None,
     #'profile_support': 'cisco',
+    # The network profile support option is used when the user wants support for
+    #  network profiles in neutron.
+    'network_profile_support': None,
+    #'network_profile_support': 'cisco',
     # Set which provider network types are supported. Only the network types
     # in this list will be available to choose from when creating a network.
     # Network types include local, flat, vlan, gre, and vxlan.

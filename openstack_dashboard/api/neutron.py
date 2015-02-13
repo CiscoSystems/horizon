@@ -573,7 +573,10 @@ def network_create(request, **kwargs):
     LOG.debug("network_create(): kwargs = %s" % kwargs)
     # In the case network profiles are being used, profile id is needed.
     if 'net_profile_id' in kwargs:
-        kwargs['n1kv:profile_id'] = kwargs.pop('net_profile_id')
+        if is_network_profiles_supported():
+            kwargs['n1kv:profile_id'] = kwargs.pop('net_profile_id')
+        else:
+            kwargs.pop('net_profile_id')
     body = {'network': kwargs}
     network = neutronclient(request).create_network(body=body).get('network')
     return Network(network)
@@ -992,6 +995,14 @@ def is_port_profiles_supported():
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
     # Can be used to check for vendor specific plugin
     profile_support = network_config.get('profile_support', None)
+    if str(profile_support).lower() == 'cisco':
+        return True
+
+
+def is_network_profiles_supported():
+    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    # Can be used to check for vendor specific plugin
+    profile_support = network_config.get('network_profile_support', None)
     if str(profile_support).lower() == 'cisco':
         return True
 
