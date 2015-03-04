@@ -27,5 +27,14 @@
 
     <dt>{% trans "Admin State Up" %}</dt>
     <dd>{{ firewall.admin_state_up|yesno|capfirst }}</dd>
+
+    {% if firewall.port_id %}
+        <dt>{% trans "Router Interface ID" %}</dt>
+        <dd>{{ firewall.port_id }}</dd>
+    {% endif %}
+    {% if firewall.direction %}
+        <dt>{% trans "Direction" %}</dt>
+        <dd>{{ firewall.direction }}</dd>
+    {% endif %}
   </dl>
 </div>

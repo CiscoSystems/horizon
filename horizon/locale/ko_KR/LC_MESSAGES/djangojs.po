@@ -9,15 +9,94 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-03 00:26+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-19 07:14+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: static/angular/action-list/button-tooltip.js:15
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "작업을 진행할 수 없습니다. 이 행의 내용에 오류가 있거나 정보가 누락되어 있습니다."
+
+#: static/angular/metadata-display/metadata-display.js:33
+msgid "Detail Information"
+msgstr "상세 정보"
+
+#: static/angular/metadata-tree/metadata-tree.js:35
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr "왼쪽열에서 오른쪽열로 항목을 이동하여 리소스 메타데이터를 지정할 수 있습니다. 왼쪽열에서 Clance 메타데이터 카탈로그에서 메타데이터를 정의할 수 있습니다. \"Other\" 옵션을 사용하여 선택한 키를 메타데이터에 추가할 수 있습니다."
+
+#: static/angular/metadata-tree/metadata-tree.js:36
+msgid "Min"
+msgstr "최소"
+
+#: static/angular/metadata-tree/metadata-tree.js:37
+msgid "Max"
+msgstr "최대"
+
+#: static/angular/metadata-tree/metadata-tree.js:38
+msgid "Min length"
+msgstr "최소 길이"
+
+#: static/angular/metadata-tree/metadata-tree.js:39
+msgid "Max length"
+msgstr "최대 길이"
+
+#: static/angular/metadata-tree/metadata-tree.js:40
+msgid "Pattern mismatch"
+msgstr "패턴 불일치"
+
+#: static/angular/metadata-tree/metadata-tree.js:41
+msgid "Integer required"
+msgstr "정수 필요"
+
+#: static/angular/metadata-tree/metadata-tree.js:42
+msgid "Decimal required"
+msgstr "실수 필요"
+
+#: static/angular/metadata-tree/metadata-tree.js:43
+msgid "Required"
+msgstr "필요"
+
+#: static/angular/metadata-tree/metadata-tree.js:44
+msgid "Duplicate keys are not allowed"
+msgstr "중복키를 허용하지 않습니다."
+
+#: static/angular/metadata-tree/metadata-tree.js:45
+#: static/horizon/js/horizon.forms.js:184
+msgid "Filter"
+msgstr "필터"
+
+#: static/angular/metadata-tree/metadata-tree.js:46
+msgid "Available Metadata"
+msgstr "사용가능한 메터데이터"
+
+#: static/angular/metadata-tree/metadata-tree.js:47
+msgid "Existing Metadata"
+msgstr "기존 메타데이터"
+
+#: static/angular/metadata-tree/metadata-tree.js:48
+msgid "Custom"
+msgstr "사용자 지정"
+
+#: static/angular/metadata-tree/metadata-tree.js:49
+msgid "No available metadata"
+msgstr "사용가능한 메타데이터가 없습니다."
+
+#: static/angular/metadata-tree/metadata-tree.js:50
+msgid "No existing metadata"
+msgstr "기존 메타데이터가 없습니다."
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -28,45 +107,49 @@ msgstr "제출"
 msgid "Cancel"
 msgstr "취소"
 
-#: static/angular/transfer-table/transfer-table.js:37
+#: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
 msgstr "할당됨"
 
-#: static/angular/transfer-table/transfer-table.js:38
+#: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
 msgstr "사용 가능"
 
-#: static/angular/transfer-table/transfer-table.js:39
+#: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
 msgstr "하나 선택"
 
-#: static/angular/transfer-table/transfer-table.js:40
+#: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
 msgstr "아래의 사용 가능한 항목에서 항목을 선택"
 
-#: static/angular/transfer-table/transfer-table.js:41
+#: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
 
-#: static/angular/transfer-table/transfer-table.js:42
+#: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
 msgstr "할당된 항목을 볼 수 있도록 확장"
 
-#: static/angular/transfer-table/transfer-table.js:43
+#: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
 msgstr "사용 가능한 항목을 볼 수 있도록 확장"
 
-#: static/angular/transfer-table/transfer-table.js:44
+#: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
 msgstr "클릭하여 보기 또는 감추기"
 
-#: static/angular/transfer-table/transfer-table.js:45
+#: static/angular/transfer-table/transfer-table.js:47
+msgid "Re-order items using drag and drop"
+msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
+
+#: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
 msgstr "클릭하여 세부 사항 보기"
 
-#: static/angular/transfer-table/transfer-table.js:93
-msgid "Found %(found)s of %(available)s"
-msgstr "%(avaliable)s에 %(found)s 찾기"
+#: static/angular/transfer-table/transfer-table.js:100
+msgid "Found %(found)s of %(total)s"
+msgstr "%(total)s 의 %(found)s 찾기"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
@@ -80,8 +163,8 @@ msgstr "다음"
 msgid "Finish"
 msgstr "완료"
 
-#: static/horizon/js/horizon.accordion_nav.js:84
-#: static/horizon/js/horizon.modals.js:313
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "불러오는 중"
@@ -92,7 +175,7 @@ msgid "No data available."
 msgstr "데이터가 없습니다."
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:332
+#: static/horizon/js/horizon.modals.js:334
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
@@ -103,16 +186,12 @@ msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세요."
 
-#: static/horizon/js/horizon.forms.js:184
-msgid "Filter"
-msgstr "필터"
-
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "파일을 읽을 수 없습니다"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "암호를 해독할 수 없습니다."
 
@@ -144,12 +223,12 @@ msgstr "완료:"
 msgid "Error: "
 msgstr "오류:"
 
-#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.modals.js:229
 #: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "작동 중"
 
-#: static/horizon/js/horizon.modals.js:261
+#: static/horizon/js/horizon.modals.js:263
 msgid "There was an error submitting the form. Please try again."
 msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 시도하세요."
 
@@ -207,7 +286,7 @@ msgid "View Instance Details"
 msgstr "인스턴스 정보 자세히 보기"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
@@ -230,7 +309,7 @@ msgstr "%s를 확인하세요."
 msgid "Please confirm your selection. "
 msgstr "선택 사항을 확인하십시오."
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -265,6 +344,36 @@ msgstr "닫침"
 #, c-format
 msgid "Status: %s"
 msgstr "상태: %s"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr "예"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr "아니오"
+
+#: static/horizon/js/angular/filters/filters.js:53
+#: static/horizon/js/angular/filters/filters.js:140
+msgid "GB"
+msgstr "GB"
+
+#: static/horizon/js/angular/filters/filters.js:70
+#: static/horizon/js/angular/filters/filters.js:142
+msgid "MB"
+msgstr "MB"
+
+#: static/horizon/js/angular/filters/filters.js:138
+msgid "TB"
+msgstr "TB"
+
+#: static/horizon/js/angular/filters/filters.js:144
+msgid "KB"
+msgstr "KB"
+
+#: static/horizon/js/angular/filters/filters.js:146
+msgid "bytes"
+msgstr "bytes"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -370,37 +479,57 @@ msgstr "도메인을 수정하지 못했습니다."
 msgid "Unable to delete the domain."
 msgstr "도메인을 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
 msgstr "프로젝트를 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
 msgstr "프로젝트를 만들지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
 msgstr "프로젝트를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
 msgstr "프로젝트를 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
 msgstr "프로젝트를 수정하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
 msgstr "프로젝트를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
 msgstr "Role을 부여하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
 msgstr "서비스 카타로그를 가져올 수 없습니다."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr "네트워크를 찾지 못 했습니다."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:88
+msgid "Unable to create the network."
+msgstr "네트워크를 생성하지 못하였습니다."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:108
+msgid "Unable to retrieve subnets."
+msgstr "서브넷을 찾지 못했습니다."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:172
+msgid "Unable to create the subnet."
+msgstr "서브넷을 생성하지 못했습니다."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:192
+msgid "Unable to retrieve ports."
+msgstr "포트를 검색하지 못했습니다"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
@@ -430,21 +559,21 @@ msgstr "서버를 찾지 못했습니다"
 msgid "Unable to retrieve extensions."
 msgstr "확장을 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:214
+#: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
 msgstr "Flavor를 찾지 못 했습니다."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:232
+#: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
 msgstr "Flavor를 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:246
+#: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
 msgstr "Flavor 확장 스팩을 찾지 못했습니다."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "정책 확인 실패함."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."

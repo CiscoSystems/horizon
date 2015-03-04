@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-03 00:26+0000\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-21 06:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/angular/action-list/button-tooltip.js:15
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+
+#: static/angular/metadata-display/metadata-display.js:33
+msgid "Detail Information"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:35
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:36
+msgid "Min"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:37
+msgid "Max"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:38
+msgid "Min length"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:39
+msgid "Max length"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:40
+msgid "Pattern mismatch"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:41
+msgid "Integer required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:42
+msgid "Decimal required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:43
+msgid "Required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:44
+msgid "Duplicate keys are not allowed"
+msgstr "Avaimen pitää olla uniikki"
+
+#: static/angular/metadata-tree/metadata-tree.js:45
+#: static/horizon/js/horizon.forms.js:184
+msgid "Filter"
+msgstr "Suodain"
+
+#: static/angular/metadata-tree/metadata-tree.js:46
+msgid "Available Metadata"
+msgstr "Käytettävissä oleva metatieto"
+
+#: static/angular/metadata-tree/metadata-tree.js:47
+msgid "Existing Metadata"
+msgstr "Olemassa oleva metatieto"
+
+#: static/angular/metadata-tree/metadata-tree.js:48
+msgid "Custom"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:49
+msgid "No available metadata"
+msgstr "Metatietoa ei ole saatavilla"
+
+#: static/angular/metadata-tree/metadata-tree.js:50
+msgid "No existing metadata"
+msgstr ""
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -27,44 +106,48 @@ msgstr "Lähetä"
 msgid "Cancel"
 msgstr "Keskeytä"
 
-#: static/angular/transfer-table/transfer-table.js:37
+#: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:38
+#: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
 msgstr "Saatavilla"
 
-#: static/angular/transfer-table/transfer-table.js:39
+#: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:40
+#: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:41
+#: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:42
+#: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:43
+#: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:44
+#: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:45
+#: static/angular/transfer-table/transfer-table.js:47
+msgid "Re-order items using drag and drop"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:93
-msgid "Found %(found)s of %(available)s"
+#: static/angular/transfer-table/transfer-table.js:100
+msgid "Found %(found)s of %(total)s"
 msgstr ""
 
 #: static/angular/wizard/wizard.js:8
@@ -79,8 +162,8 @@ msgstr "Edellinen"
 msgid "Finish"
 msgstr ""
 
-#: static/horizon/js/horizon.accordion_nav.js:84
-#: static/horizon/js/horizon.modals.js:313
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Ladataan"
@@ -91,7 +174,7 @@ msgid "No data available."
 msgstr "Ei dataa saatavilla."
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:332
+#: static/horizon/js/horizon.modals.js:334
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
@@ -102,16 +185,12 @@ msgstr "Tapahtui virhe. Yritä myöhemmin uudelleen."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Palvelinyhteydessä tapahtui virhe, yritä myöhemmin uudelleen."
 
-#: static/horizon/js/horizon.forms.js:184
-msgid "Filter"
-msgstr "Suodain"
-
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "Tiedostoa ei voitu lukea"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "Salasanaa ei voitu purkaa"
 
@@ -143,12 +222,12 @@ msgstr "Onnistui:"
 msgid "Error: "
 msgstr "Virhe:"
 
-#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.modals.js:229
 #: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "Käsitellään"
 
-#: static/horizon/js/horizon.modals.js:261
+#: static/horizon/js/horizon.modals.js:263
 msgid "There was an error submitting the form. Please try again."
 msgstr "Lomakkeen lähetys epäonnistui. Yritä uudelleen."
 
@@ -206,7 +285,7 @@ msgid "View Instance Details"
 msgstr "Näytä instanssin tiedot"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "Ei näytettävää."
 
@@ -229,7 +308,7 @@ msgstr "Vahvista %s"
 msgid "Please confirm your selection. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -264,6 +343,36 @@ msgstr ""
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:53
+#: static/horizon/js/angular/filters/filters.js:140
+msgid "GB"
+msgstr "GB"
+
+#: static/horizon/js/angular/filters/filters.js:70
+#: static/horizon/js/angular/filters/filters.js:142
+msgid "MB"
+msgstr "MB"
+
+#: static/horizon/js/angular/filters/filters.js:138
+msgid "TB"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:144
+msgid "KB"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:146
+msgid "bytes"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
@@ -370,36 +479,56 @@ msgstr ""
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr "Ei voida hakea verkkoja. "
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:88
+msgid "Unable to create the network."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:108
+msgid "Unable to retrieve subnets."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:172
+msgid "Unable to create the subnet."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:192
+msgid "Unable to retrieve ports."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
@@ -430,15 +559,15 @@ msgstr ""
 msgid "Unable to retrieve extensions."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:214
+#: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:232
+#: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:246
+#: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
 msgstr ""
 

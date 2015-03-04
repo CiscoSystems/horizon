@@ -61,10 +61,11 @@ class DatabasePanels(horizon.PanelGroup):
 class DataProcessingPanels(horizon.PanelGroup):
     name = _("Data Processing")
     slug = "data_processing"
-    panels = ('data_processing.clusters',
+    panels = ('data_processing.wizard',
+              'data_processing.clusters',
+              'data_processing.job_executions',
               'data_processing.cluster_templates',
               'data_processing.nodegroup_templates',
-              'data_processing.job_executions',
               'data_processing.jobs',
               'data_processing.job_binaries',
               'data_processing.data_sources',

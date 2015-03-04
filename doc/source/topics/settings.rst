@@ -280,6 +280,18 @@ Most of the following settings are defined in
  ``openstack_dashboard/local/local_settings.py``, which should be copied from
  ``openstack_dashboard/local/local_settings.py.example``.
 
+``AUTHENTICATION_URLS``
+-----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``['openstack_auth.urls']``
+
+A list of modules from which to collate authentication URLs from. The default
+option adds URLs from the django-openstack-auth module however others will be
+required for additional authentication mechanisms.
+
+
 ``API_RESULT_LIMIT``
 --------------------
 
@@ -368,6 +380,19 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+``CUSTOM_THEME_PATH``
+---------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``"static/themes/default"``
+
+This setting allows Horizon to use a custom theme. The theme folder
+should contains one _variables.scss file and one _styles.scss file.
+_variables.scss contains all the bootstrap and horizon specific variables
+which are used to style the GUI. Whereas _styles.scss contains extra styling.
+For example themes, see: /horizon/openstack_dashboard/static/themes/
+
 ``DROPDOWN_MAX_ITEMS``
 ----------------------
 
@@ -378,6 +403,17 @@ Default: ``30``
 This setting sets the maximum number of items displayed in a dropdown.
 Dropdowns that limit based on this value need to support a way to observe
 the entire list.
+
+``ENFORCE_PASSWORD_CHECK``
+--------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``False``
+
+This setting will display an 'Admin Password' field on the Change Password
+form to verify that it is indeed the admin logged-in who wants to change
+the password.
 
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
@@ -424,7 +460,7 @@ edited.
 Default::
 
     {
-        "data_processing": 1.1,
+        "data-processing": 1.1,
         "identity": 2.0,
         "volume": 2
     }
@@ -439,7 +475,7 @@ OpenStack dashboard to use a specific API version for a given service API.
     use of the decimal point, so valid options would be "2.0" or "3".
     For example,
     OPENSTACK_API_VERSIONS = {
-        "data_processing": 1.1,
+        "data-processing": 1.1,
         "identity": 3,
         "volume": 2
     }
@@ -655,6 +691,7 @@ Default::
             'enable_vpn': True,
             'profile_support': None,
             'supported_provider_types': ["*"],
+            'supported_vnic_types': ["*"],
             'segmentation_id_range': {}
         }
 
@@ -780,6 +817,19 @@ be available to choose from.
 
 Example: ``['local', 'flat', 'gre']``
 
+``supported_vnic_types``:
+
+.. versionadded:: 2015.1(Kilo)
+
+Default ``['*']``
+
+For use with the port binding extension. Use this to explicitly set which VNIC
+types are supported; only those listed will be shown when creating or editing
+a port. VNIC types include normal, direct and macvtap. By default all VNIC
+types will be available to choose from.
+
+Example ``['normal', 'direct']``
+
 ``segmentation_id_range``:
 
 .. versionadded:: 2014.2(Juno)
@@ -820,6 +870,19 @@ Default: ``False``
 
 Disable SSL certificate checks in the OpenStack clients (useful for self-signed
 certificates).
+
+
+``OPENSTACK_TOKEN_HASH_ALGORITHM``
+----------------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``"md5"``
+
+The hash algorithm to use for authentication tokens. This must match the hash
+algorithm that the identity (Keystone) server and the auth_token middleware
+are using. Allowed values are the algorithms supported by Python's hashlib
+library.
 
 
 ``POLICY_FILES``
@@ -877,17 +940,21 @@ To disable these extensions set the permission to something
 unusable such as ``[!]``.
 
 
-``OPENSTACK_TOKEN_HASH_ALGORITHM``
-----------------------------------
+``WEBROOT``
+-----------
 
-.. versionadded:: 2014.2(Juno)
+.. versionadded:: 2015.1(Kilo)
 
-Default: ``"md5"``
+Default: ``"/"``
 
-The hash algorithm to use for authentication tokens. This must match the hash
-algorithm that the identity (Keystone) server and the auth_token middleware
-are using. Allowed values are the algorithms supported by Python's hashlib
-library.
+Specifies the location where the access to the dashboard is configured in
+the web server.
+
+For example, if you're accessing the Dashboard via
+https://<your server>/horizon, you'd set this to ``"/horizon"``.
+
+
+
 
 Django Settings (Partial)
 =========================

@@ -3,19 +3,99 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amandeep Singh Saini <jimidar@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-03 00:26+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-22 00:12+0000\n"
+"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/angular/action-list/button-tooltip.js:15
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "ਇਹ ਕਾਰਵਾਈ ਨਹੀਂ ਹੋ ਸਕਦੀ। ਇਸ ਸਤਰ੍ਹ ਦੇ ਅੰਸ਼ਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਹਨ ਜਾਂ ਕੋਈ ਜਾਣਕਾਰੀ ਘੱਟ ਹੈ।"
+
+#: static/angular/metadata-display/metadata-display.js:33
+msgid "Detail Information"
+msgstr "ਵਿਸਥਾਰ ਜਾਣਕਾਰੀ"
+
+#: static/angular/metadata-tree/metadata-tree.js:35
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr "ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ। ਖੱਬੀਆਂ ਪੱਟੀਆਂ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ। ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਦੇ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।"
+
+#: static/angular/metadata-tree/metadata-tree.js:36
+msgid "Min"
+msgstr "ਘੱਟੋ-ਘੱਟ"
+
+#: static/angular/metadata-tree/metadata-tree.js:37
+msgid "Max"
+msgstr "ਵੱਧੋ-ਵੱਧ"
+
+#: static/angular/metadata-tree/metadata-tree.js:38
+msgid "Min length"
+msgstr "ਘੱਟੋ-ਘੱਟ ਲੰਬਾਈ"
+
+#: static/angular/metadata-tree/metadata-tree.js:39
+msgid "Max length"
+msgstr "ਵੱਧੋ-ਵੱਧ ਲੰਬਾਈ"
+
+#: static/angular/metadata-tree/metadata-tree.js:40
+msgid "Pattern mismatch"
+msgstr "ਬੇਮੇਲ ਨਮੂਨਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:41
+msgid "Integer required"
+msgstr "ਅੰਕ ਲੋੜੀਂਦਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:42
+msgid "Decimal required"
+msgstr "ਦਸ਼ਮਲਵ ਲੋੜੀਂਦਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:43
+msgid "Required"
+msgstr "ਲੋੜੀਂਦਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:44
+msgid "Duplicate keys are not allowed"
+msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
+
+#: static/angular/metadata-tree/metadata-tree.js:45
+#: static/horizon/js/horizon.forms.js:184
+msgid "Filter"
+msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
+
+#: static/angular/metadata-tree/metadata-tree.js:46
+msgid "Available Metadata"
+msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:47
+msgid "Existing Metadata"
+msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:48
+msgid "Custom"
+msgstr "ਚੁਣਿੰਦਾ"
+
+#: static/angular/metadata-tree/metadata-tree.js:49
+msgid "No available metadata"
+msgstr "ਕੋਈ ਮੈਟਾਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀਂ"
+
+#: static/angular/metadata-tree/metadata-tree.js:50
+msgid "No existing metadata"
+msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -26,45 +106,49 @@ msgstr "ਦਾਖਲ ਕਰੋ"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: static/angular/transfer-table/transfer-table.js:37
+#: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
-msgstr ""
+msgstr "ਵੰਡਿਆ ਜਾ ਚੁੱਕਾ"
 
-#: static/angular/transfer-table/transfer-table.js:38
+#: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
 msgstr "ਉਪਲੱਬਧ"
 
-#: static/angular/transfer-table/transfer-table.js:39
-msgid "Select one"
-msgstr ""
-
-#: static/angular/transfer-table/transfer-table.js:40
-msgid "Select an item from Available items below"
-msgstr ""
-
 #: static/angular/transfer-table/transfer-table.js:41
-msgid "No available items"
-msgstr ""
+msgid "Select one"
+msgstr "ਇੱਕ ਚੁਣੋ"
 
 #: static/angular/transfer-table/transfer-table.js:42
-msgid "Expand to see allocated items"
-msgstr ""
+msgid "Select an item from Available items below"
+msgstr "ਹੇਠਾਂ ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੀਜ਼ ਚੁਣੋ"
 
 #: static/angular/transfer-table/transfer-table.js:43
-msgid "Expand to see available items"
-msgstr ""
+msgid "No available items"
+msgstr "ਕੋਈ ਉਪਲੱਬਧ ਚੀਜ਼ ਨਹੀਂ"
 
 #: static/angular/transfer-table/transfer-table.js:44
-msgid "Click to show or hide"
-msgstr ""
+msgid "Expand to see allocated items"
+msgstr "ਵੰਡ ਹੋ ਚੁੱਕੀਆਂ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
 
 #: static/angular/transfer-table/transfer-table.js:45
-msgid "Click to see more details"
-msgstr ""
+msgid "Expand to see available items"
+msgstr "ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
 
-#: static/angular/transfer-table/transfer-table.js:93
-msgid "Found %(found)s of %(available)s"
-msgstr ""
+#: static/angular/transfer-table/transfer-table.js:46
+msgid "Click to show or hide"
+msgstr "ਵਿਖਾਉਣ ਜਾਂ ਲੁਕਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+#: static/angular/transfer-table/transfer-table.js:47
+msgid "Re-order items using drag and drop"
+msgstr "ਧੂਹ ਕੇ ਸੁੱਟਣ (ਡਰੈਗ ਐੰਡ ਡਰੌਪ) ਨਾਲ ਚੀਜ਼ਾਂ ਨੂੰ ਮੁੜ ਤਰਤੀਬ ਦਿਉ"
+
+#: static/angular/transfer-table/transfer-table.js:48
+msgid "Click to see more details"
+msgstr "ਹੋਰ ਵੇਰਵੇ ਵੇਖਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+#: static/angular/transfer-table/transfer-table.js:100
+msgid "Found %(found)s of %(total)s"
+msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
@@ -76,10 +160,10 @@ msgstr "ਅਗਲਾ"
 
 #: static/angular/wizard/wizard.js:10
 msgid "Finish"
-msgstr ""
+msgstr "ਮੁਕੰਮਲ"
 
-#: static/horizon/js/horizon.accordion_nav.js:84
-#: static/horizon/js/horizon.modals.js:313
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
@@ -87,10 +171,10 @@ msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
 #: static/horizon/js/horizon.d3linechart.js:394
 #: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
-msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲਖ਼ਬਧ ਨਹੀ।"
+msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:332
+#: static/horizon/js/horizon.modals.js:334
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
@@ -101,16 +185,12 @@ msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-#: static/horizon/js/horizon.forms.js:184
-msgid "Filter"
-msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
-
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
 
@@ -142,19 +222,19 @@ msgstr "ਸਫਲਤਾ: "
 msgid "Error: "
 msgstr "ਗਲਤੀ: "
 
-#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.modals.js:229
 #: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
 
-#: static/horizon/js/horizon.modals.js:261
+#: static/horizon/js/horizon.modals.js:263
 msgid "There was an error submitting the form. Please try again."
 msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: static/horizon/js/horizon.networktopology.js:530
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "None"
-msgstr ""
+msgstr "ਕੋਈ ਨਹੀਂ"
 
 #: static/horizon/js/horizon.networktopology.js:549
 msgid "Delete"
@@ -174,23 +254,23 @@ msgstr "ਇੰਟਰਫੇਸ"
 
 #: static/horizon/js/horizon.networktopology.js:555
 msgid "Delete Interface"
-msgstr ""
+msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
 
 #: static/horizon/js/horizon.networktopology.js:556
 msgid "Open Console"
-msgstr ""
+msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
 
 #: static/horizon/js/horizon.networktopology.js:557
 msgid "View Details"
-msgstr ""
+msgstr "ਵੇਰਵੇ ਵੇਖੋ"
 
 #: static/horizon/js/horizon.networktopology.js:560
 msgid "Delete Router"
-msgstr ""
+msgstr "ਰਊਟਰ ਮਿਟਾਉ"
 
 #: static/horizon/js/horizon.networktopology.js:561
 msgid "View Router Details"
-msgstr ""
+msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
 
 #: static/horizon/js/horizon.networktopology.js:564
 msgid "Add Interface"
@@ -198,14 +278,14 @@ msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr ""
+msgstr "ਇੰਸਟਾਂਸ ਨੂੰ ਖਤਮ ਕਰ ਦਿਉ"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
-msgstr ""
+msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
 
@@ -226,9 +306,9 @@ msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
 
 #: static/horizon/js/horizon.tables.js:204
 msgid "Please confirm your selection. "
-msgstr ""
+msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।"
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -246,205 +326,255 @@ msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "ਜੁੜ ਰਿਹਾ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
-msgstr ""
+msgstr "ਖੋਲ੍ਹੋ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "ਬੰਦ ਹੋਇਆ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
-msgstr ""
+msgstr "ਹਾਲਾਤ: %s"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr "ਹਾਂ"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr "ਨਹੀਂ"
+
+#: static/horizon/js/angular/filters/filters.js:53
+#: static/horizon/js/angular/filters/filters.js:140
+msgid "GB"
+msgstr "GB"
+
+#: static/horizon/js/angular/filters/filters.js:70
+#: static/horizon/js/angular/filters/filters.js:142
+msgid "MB"
+msgstr "MB"
+
+#: static/horizon/js/angular/filters/filters.js:138
+msgid "TB"
+msgstr "TB"
+
+#: static/horizon/js/angular/filters/filters.js:144
+msgid "KB"
+msgstr "KB"
+
+#: static/horizon/js/angular/filters/filters.js:146
+msgid "bytes"
+msgstr "ਬਾਈਟਾਂ"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "ਆਇਤਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
-msgstr ""
+msgstr "ਆਇਤਨ ਸਨੈਪਸ਼ਾਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "ਐਡਮਿਨ ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
-msgstr ""
+msgstr "ਤਸਵੀਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:81
 msgid "Unable to retrieve images."
-msgstr ""
+msgstr "ਤਸਵੀਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "ਨੇਮ-ਸਪੇਸਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr ""
+msgstr "ਨੇਮ-ਸਪੇਸ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:60
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "ਰੋਲ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "ਰੋਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "ਰੋਲ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "ਰੋਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "ਡੋਮੇਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "ਡੋਮੇਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "ਡੋਮੇਨ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮਨਜ਼ੂਰੀ ਦੇਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:88
+msgid "Unable to create the network."
+msgstr "ਨੈੱਟਵਰਕ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:108
+msgid "Unable to retrieve subnets."
+msgstr "ਉਪ-ਨੈੱਟਾਂ (ਸਬ-ਨੈੱਟਾਂ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:172
+msgid "Unable to create the subnet."
+msgstr "ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:192
+msgid "Unable to retrieve ports."
+msgstr "ਪੋਰਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
-msgstr ""
+msgstr "ਚਾਬੀ-ਜੋੜੀਆਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "ਚਾਬੀ-ਜੋੜੀ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."
-msgstr ""
+msgstr "ਜ਼ੋਨਾਂ ਦੀ ਉਪਲਬੱਧਤਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr ""
+msgstr "ਹੱਦਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
-msgstr ""
+msgstr "ਸਰਵਰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "ਸਰਵਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.nova.js:214
+#: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
-msgstr ""
+msgstr "ਮਹਿਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.nova.js:232
+#: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.nova.js:246
+#: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "ਨੀਤੀ ਪੜਤਾਲ ਅਸਫਲ ਹੋਈ।"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
-msgstr ""
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"

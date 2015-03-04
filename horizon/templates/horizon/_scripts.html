@@ -16,6 +16,7 @@
 
 <script src='{{ STATIC_URL }}horizon/js/angular/controllers/namespace-controller.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/controllers/dummy.js'></script>
+<script src='{{ STATIC_URL }}horizon/js/angular/controllers/modal-form-update-metadata-ctrl.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/directives/forms.js'></script>
 
 <script src='{{ STATIC_URL }}horizon/js/angular/horizon.conf.js'></script>
@@ -26,22 +27,33 @@
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.config.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.glance.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.keystone.js'></script>
+<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.neutron.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.nova.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.policy.js'></script>
+<script src='{{ STATIC_URL }}horizon/js/angular/filters/filters.js'></script>
+<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.security-group.js'></script>
 
 <script src="{{ STATIC_URL }}horizon/lib/d3.js"></script>
 
 <script src='{{ STATIC_URL }}angular/widget.module.js'></script>
+<script src='{{ STATIC_URL }}angular/form/form.js'></script>
 <script src='{{ STATIC_URL }}angular/help-panel/help-panel.js'></script>
 <script src='{{ STATIC_URL }}angular/wizard/wizard.js'></script>
+<script src='{{ STATIC_URL }}angular/action-list/action-list.js'></script>
+<script src='{{ STATIC_URL }}angular/action-list/button-tooltip.js'></script>
 <script src='{{ STATIC_URL }}angular/table/table.js'></script>
+<script src='{{ STATIC_URL }}angular/table/basic-table.js'></script>
 <script src='{{ STATIC_URL }}angular/modal/modal.js'></script>
+<script src='{{ STATIC_URL }}angular/modal-wait-spinner/modal-wait-spinner.js'></script>
 <script src='{{ STATIC_URL }}angular/bind-scope/bind-scope.js'></script>
 <script src='{{ STATIC_URL }}angular/transfer-table/transfer-table.js'></script>
 <script src='{{ STATIC_URL }}angular/charts/charts.js'></script>
 <script src='{{ STATIC_URL }}angular/charts/chart-tooltip.js'></script>
 <script src='{{ STATIC_URL }}angular/charts/pie-chart.js'></script>
+<script src='{{ STATIC_URL }}angular/metadata-tree/metadata-tree.js'></script>
 <script src='{{ STATIC_URL }}angular/metadata-tree/metadata-tree-service.js'></script>
+<script src='{{ STATIC_URL }}angular/metadata-display/metadata-display.js'></script>
+<script src='{{ STATIC_URL }}angular/magic-search/magic-search.js'></script>
 
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.quicksearch.js'></script>
 <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.tablesorter.js"></script>
@@ -53,6 +65,8 @@
 <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
 <script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/bootstrap-datepicker.js'></script>
 
+<script src="{{ STATIC_URL }}horizon/lib/magic_search/magic_search.js"></script>
+
 <script src="{{ STATIC_URL }}horizon/lib/hogan.js"></script>
 
 <script src='{{ STATIC_URL }}horizon/js/horizon.accordion_nav.js'></script>
@@ -62,6 +76,7 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.instances.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.messages.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.modals.js'></script>
+
 <script type="text/javascript">
   horizon.modals.MODAL_BACKDROP = "{% firstof HORIZON_CONFIG.modal_backdrop 'static' %}";
 </script>

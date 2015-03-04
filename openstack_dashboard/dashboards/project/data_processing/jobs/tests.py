@@ -33,7 +33,7 @@ class DataProcessingJobTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res,
                                 'project/data_processing.jobs/jobs.html')
-        self.assertContains(res, 'Jobs')
+        self.assertContains(res, 'Job Templates')
         self.assertContains(res, 'Name')
 
     @test.create_stubs({api.sahara: ('job_get',)})
@@ -45,6 +45,23 @@ class DataProcessingJobTests(test.TestCase):
         self.assertTemplateUsed(res,
                                 'project/data_processing.jobs/details.html')
         self.assertContains(res, 'pigjob')
+
+    @test.create_stubs({api.sahara: ('job_binary_list', 'job_create',)})
+    def test_create(self):
+        api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
+        api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
+        api.sahara.job_create(IsA(http.HttpRequest),
+                              'test', 'Pig', [], [], 'test create')
+        self.mox.ReplayAll()
+        form_data = {'job_name': 'test',
+                     'job_type': 'pig',
+                     'lib_binaries': [],
+                     'lib_ids': '[]',
+                     'job_description': 'test create'}
+        url = reverse('horizon:project:data_processing.jobs:create-job')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
 
     @test.create_stubs({api.sahara: ('job_list',
                                      'job_delete')})

@@ -36,6 +36,7 @@ class AddPolicyLink(tables.LinkAction):
     verbose_name = _("Add Policy")
     url = "horizon:project:firewalls:addpolicy"
     classes = ("ajax-modal", "btn-addpolicy",)
+    icon = "plus"
     policy_rules = (("network", "create_firewall_policy"),)
 
 
@@ -149,6 +150,13 @@ class UpdateFirewallLink(policy.PolicyTargetMixin, tables.LinkAction):
         base_url = reverse("horizon:project:firewalls:updatefirewall",
                            kwargs={'firewall_id': firewall.id})
         return base_url
+
+    def allowed(self, request, firewall):
+        if firewall.status in ("PENDING_CREATE",
+                               "PENDING_UPDATE",
+                               "PENDING_DELETE"):
+            return False
+        return True
 
 
 class InsertRuleToPolicyLink(policy.PolicyTargetMixin,

@@ -19,9 +19,10 @@ from openstack_dashboard.dashboards.project import dashboard
 
 
 class JobsPanel(horizon.Panel):
-    name = _("Jobs")
+    name = _("Job Templates")
     slug = 'data_processing.jobs'
-    permissions = ('openstack.services.data_processing',)
+    permissions = (('openstack.services.data-processing',
+                    'openstack.services.data_processing'),)
 
 
 dashboard.Project.register(JobsPanel)

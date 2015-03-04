@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-16 19:03+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475
 msgid "Other"
 msgstr "기타"
 
@@ -82,7 +82,7 @@ msgid "Submit"
 msgstr "제출"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:232
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "취소"
@@ -90,8 +90,6 @@ msgstr "취소"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -112,10 +110,6 @@ msgstr "%(data_type)s %(action)s"
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
-
-#: tables/actions.py:803 tables/base.py:1570
-msgid "N/A"
-msgstr "N/A"
 
 #: tables/actions.py:832
 #, python-format
@@ -174,6 +168,10 @@ msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
+
+#: tables/base.py:1570
+msgid "N/A"
+msgstr "N/A"
 
 #: templates/_header.html:5
 #, python-format
@@ -310,44 +308,7 @@ msgstr "볼륨"
 msgid "Volume Storage"
 msgstr "볼륨 스토리지"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:12
-msgid ""
-"\n"
-"        You can specify metadata by adding items from the left column to\n"
-"        the right column. You may select the metadata added to glance\n"
-"        dictionary or you can use the \"Other\" option using a key of\n"
-"        your choice.\n"
-"      "
-msgstr "\n        당신은 왼쪽 열부터 오른쪽 열까지  항목을 추가하여 메타 데이터를 지정할 수 있습니다.\n당신은 glance 목록이나 당신의 \"다른\" 선택으로 사용할 메터 데이터를 선택할 수 있습니다."
-
 #: templates/horizon/common/_modal_form_update_metadata.html:26
-msgid "Available Metadata"
-msgstr "활용할 수 있는 메타데이터"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:56
-msgid "Duplicate keys are not allowed"
-msgstr "키 중복이 허용되지 않음"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:193
-msgid "No available metadata"
-msgstr "사용할 수 있는 메타데이터 없음"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:95
-msgid "Existing Metadata"
-msgstr "존재하는 메타데이터"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:209
-msgid ""
-"\n"
-"          You can specify resource metadata by moving items from the left\n"
-"          column to the right column. In the left columns there are metadata\n"
-"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
-"          to add metadata with the key of your choice.\n"
-"        "
-msgstr "\n          당신은 왼쪽 열부터 오른쪽 열까지 자원의 메타 데이터를 이동하면서 지정할 수 있습니다. 왼쪽 열에는 Glance 메터 데이터 카탈로그에 정의된 메타 데이터가 있습니다. \"Other\" 옵션을 사용해서 당신이 선택한 키 값을 메터 데이터에 추가하세요. \n        "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "저장"
@@ -422,26 +383,26 @@ msgstr "다음"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:144
+#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "제한 없음"
 
-#: templatetags/horizon.py:136 templatetags/horizon.py:138
+#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "사용 가능"
 
-#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:51 templatetags/sizeformat.py:56
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 바이트"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
@@ -451,17 +412,17 @@ msgstr "%s MB"
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:66
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:68
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:77
+#: templatetags/sizeformat.py:74
 msgid "0 Bytes"
 msgstr "0 Bytes"
 
@@ -485,21 +446,25 @@ msgstr "페이크"
 msgid "Never"
 msgstr "없음"
 
-#: utils/validators.py:23 utils/validators.py:47
+#: utils/validators.py:26 utils/validators.py:50
 msgid "Not a valid port number"
 msgstr "유효하지 않은 포트 번호"
 
-#: utils/validators.py:28
+#: utils/validators.py:31
 msgid "Not a valid IP protocol number"
 msgstr "유효하지 않은 IP 프로토콜 번호"
 
-#: utils/validators.py:42
+#: utils/validators.py:45
 msgid "One colon allowed in port range"
 msgstr "포트 범위에서 콜론은 하나만 사용할 수 있습니다."
 
-#: utils/validators.py:49
+#: utils/validators.py:52
 msgid "Port number must be integer"
 msgstr "포트 번호는 정수이어야 합니다."
+
+#: utils/validators.py:59
+msgid "The string may only contain ASCII printable characters."
+msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
 
 #: workflows/base.py:71
 msgid "Processing..."

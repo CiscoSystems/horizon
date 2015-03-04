@@ -2,8 +2,14 @@
 @import "/horizon/lib/bootstrap_datepicker/datepicker3.css";
 @import "/horizon/lib/rickshaw.css";
 
+// Custom Theme Variables
+@import "/custom/variables";
+
 // Horizon Variables
 @import "variables";
+
+// Horizon Mixins
+@import "mixins";
 
 // Vendor Components
 @import "/bootstrap/scss/bootstrap";
@@ -19,6 +25,7 @@
 @import "components/network_topology";
 @import "/angular/styles";
 
+@import "/horizon/lib/magic_search/magic_search.scss";
 
 /* new clearfix */
 .clearfix:after {
@@ -717,32 +724,39 @@ form label {
   top: 0 !important;
 }
 
-.modal-footer input {
-  width: auto;
+.modal-footer {
+  input {
+    width: auto;
+  }
+
+  .footer-row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  a.close {
+    margin-top: 0;
+    margin-right: 5px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: #666;
+    font-weight: normal;
+    filter: alpha(opacity=100);
+    -khtml-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+
+  a.close:hover {
+    color: #333;
+    text-decoration: underline;
+  }
 }
 
 .modal-body .modal-footer {
   width: 670px;
   margin-left: -25px;
   margin-right: -15px;
-}
-
-.modal-footer a.close {
-  margin-top: 0;
-  margin-right: 5px;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: #666;
-  font-weight: normal;
-  filter: alpha(opacity=100);
-  -khtml-opacity: 1;
-  -moz-opacity: 1;
-  opacity: 1;
-}
-
-.modal-footer a.close:hover {
-  color: #333;
-  text-decoration: underline;
 }
 
 .modal-body .help-block {
@@ -1288,76 +1302,6 @@ label.log-length {
   margin-top: -60px;
 }
 
-/* Capabilities widget UI */
-.capabilities {
-  min-height: 200px;
-
-  .panel .list-group {
-    height: 400px;
-    overflow: auto;
-  }
-
-  /* Header */
-
-  .panel-heading .form-control {
-    width: 150px;
-    margin-left: 20px;
-  }
-
-  /* Item lists */
-
-  .dark-stripe {
-    background-color: $table-bg-odd;
-  }
-  .light-stripe {
-    background-color: white;
-  }
-
-  .list-group-item.level-0>* {
-    padding-left: 0px;
-  }
-
-  .list-group-item.level-1>* {
-    padding-left: 15px;
-  }
-
-  .list-group-item.level-2>* {
-    padding-left: 30px;
-  }
-
-  .list-group-item .leaf {
-    padding-left: 10px;
-  }
-
-  .list-group-item span.input-group-addon {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 50%;
-    max-width: 140px;
-    text-align: right;
-  }
-
-  .list-group-item .label-info {
-    display: inline-block;
-    position: absolute;
-    z-index: 10;
-    top: 1px;
-    left: 25px;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .list-group-item .label-danger {
-    display: inline-block;
-    position: absolute;
-    z-index: 10;
-    bottom: 1px;
-    left: 25px;
-  }
-}
-
 /* Membership widget UI */
 .membership {
   min-height: 200px;
@@ -1888,3 +1832,15 @@ textarea.key_text {
   resize: none;
   border: none;
 }
+
+/**** Form Horizontal Override ****/
+.form-horizontal {
+  .form-group {
+    margin-right: 0px !important;
+  }
+
+  .form-control-feedback {
+    right: 0px !important;
+  }
+}
+

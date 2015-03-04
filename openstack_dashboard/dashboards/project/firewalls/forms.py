@@ -23,6 +23,7 @@ from horizon import messages
 from horizon.utils import validators
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.firewalls import utils
 
 port_validator = validators.validate_port_or_colon_separated_port_range
 
@@ -131,6 +132,7 @@ class UpdateFirewall(forms.SelfHandlingForm):
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"))
+    port_id, direction = utils.set_port_id_and_direction()
 
     failure_url = 'horizon:project:firewalls:index'
 
@@ -156,11 +158,58 @@ class UpdateFirewall(forms.SelfHandlingForm):
 
         self.fields['firewall_policy_id'].choices = firewall_policy_id_choices
 
+        if api.fwaas.get_firewall_provider():
+            self.fields['port_id'].choices = self._port_id_choices(
+                request, tenant_id, kwargs['initial']['port_id'])
+            self.fields['direction'].choices = self._direction_choices(
+                kwargs['initial']['direction'])
+
+    def _port_id_choices(self, request, tenant_id, port_id):
+        port_id_choices = [('', _("Select an Interface"))]
+        try:
+            port = api.neutron.port_get(request, port_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve port.'))
+        try:
+            router = api.neutron.router_get(request, port.device_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve router.'))
+
+        p_ip = router.name + ' / ' + port.fixed_ips[0]['ip_address']
+        port_id_choices = [(port_id, p_ip)]
+        try:
+            ports = api.neutron.port_list(request, tenant_id=tenant_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve port list.'))
+        for p in ports:
+            if p.id != port_id:
+                if p.device_id == port.device_id:
+                    p_ip = router.name + ' / ' + p.fixed_ips[0]['ip_address']
+                    port_id_choices.append((p.id, p_ip))
+
+        return port_id_choices
+
+    def _direction_choices(self, direction):
+        direction_choices = [('both', _('BOTH')),
+                             ('outside', _('OUTSIDE')),
+                             ('inside', _('INSIDE'))]
+        for d in direction_choices:
+            if d[0] == direction.lower():
+                direction_choices.remove(d)
+                break
+        direction_choices.insert(0, d)
+        return direction_choices
+
     def handle(self, request, context):
         firewall_id = self.initial['firewall_id']
         name_or_id = context.get('name') or firewall_id
         context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
+            if not api.fwaas.get_firewall_provider():
+                if 'port_id' in context:
+                    context.pop('port_id')
+                if 'direction' in context:
+                    context.pop('direction')
             firewall = api.fwaas.firewall_update(request, firewall_id,
                                                  **context)
             msg = _('Firewall %s was successfully updated.') % name_or_id

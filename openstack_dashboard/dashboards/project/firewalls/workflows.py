@@ -20,6 +20,7 @@ from horizon.utils import validators
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.firewalls import utils
 
 port_validator = validators.validate_port_or_colon_separated_port_range
 
@@ -239,6 +240,7 @@ class AddFirewallAction(workflows.Action):
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"))
+    port_id, direction = utils.set_port_id_and_direction()
 
     def __init__(self, request, *args, **kwargs):
         super(AddFirewallAction, self).__init__(request, *args, **kwargs)
@@ -261,18 +263,62 @@ class AddFirewallAction(workflows.Action):
         if not request.user.is_superuser:
             self.fields['shared'].widget.attrs['disabled'] = 'disabled'
 
+        if api.fwaas.get_firewall_provider():
+            self.fields['port_id'].choices = self._port_id_choices(
+                request)
+            self.fields['direction'].choices = [('both', _('BOTH')),
+                                                ('outside', _('OUTSIDE')),
+                                                ('inside', _('INSIDE'))]
+
+    def _port_id_choices(self, request):
+        port_id_choices = [('', _("Select an Interface"))]
+        try:
+            tenant_id = request.user.tenant_id
+            ports = api.neutron.port_list(request, tenant_id=tenant_id)
+        except Exception as e:
+            exceptions.handle(
+                request,
+                _('Unable to retrieve port list (%(error)s).') % {
+                    'error': str(e)})
+            ports = []
+
+        for p in ports:
+            try:
+                pp = api.neutron.port_get(request, p.id)
+            except Exception as e:
+                exceptions.handle(
+                    request,
+                    _('Unable to retrieve port (%(error)s).') % {
+                        'error': str(e)})
+            if pp['device_owner'] == 'network:router_interface':
+                try:
+                    r = api.neutron.router_get(request, p.device_id)
+                except Exception as e:
+                    exceptions.handle(
+                        request,
+                        _('Unable to retrieve router (%(error)s).') % {
+                            'error': str(e)})
+                fip = pp.fixed_ips[0]['ip_address']
+                port_id_choices.append((p.id, r.name + ' / ' + fip))
+
+        return port_id_choices
+
     class Meta(object):
         name = _("AddFirewall")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall based on a policy.\n\n"
                       "A policy must be selected. "
                       "Other fields are optional.")
+        if api.fwaas.get_firewall_provider():
+            help_text = _("Create a firewall based on a policy.\n\n"
+                          "A policy and a router interface must be selected. "
+                          "Other fields are optional.")
 
 
 class AddFirewallStep(workflows.Step):
     action_class = AddFirewallAction
     contributes = ("name", "firewall_policy_id", "description",
-                   "shared", "admin_state_up")
+                   "shared", "admin_state_up", "port_id", "direction")
 
     def contribute(self, data, context):
         context = super(AddFirewallStep, self).contribute(data, context)
@@ -300,6 +346,11 @@ class AddFirewall(workflows.Workflow):
 
     def handle(self, request, context):
         try:
+            if not api.fwaas.get_firewall_provider():
+                if 'port_id' in context:
+                    context.pop('port_id')
+                if 'direction' in context:
+                    context.pop('direction')
             api.fwaas.firewall_create(request, **context)
             return True
         except Exception as e:

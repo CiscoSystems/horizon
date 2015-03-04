@@ -14,6 +14,7 @@
 
 from __future__ import absolute_import
 
+from django.conf import settings
 from django.utils.datastructures import SortedDict
 
 from openstack_dashboard.api import neutron
@@ -283,3 +284,11 @@ def firewall_update(request, firewall_id, **kwargs):
     firewall = neutronclient(request).update_firewall(
         firewall_id, body).get('firewall')
     return Firewall(firewall)
+
+
+# Using this mechanism to check for vendor plugin
+def get_firewall_provider():
+    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    firewall_provider = network_config.get('firewall_provider', None)
+    if str(firewall_provider).lower() == 'cisco':
+        return True

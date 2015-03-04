@@ -71,15 +71,26 @@ $overview_chart_height: 81px;
 
 /* Accordion Navigation */
 
+$accordionBaseFontColor: #6e6e6e !default;
 $accordionBorderColor: #e5e5e5 !default;
+$accordionBoxShadowColor: #c7c7c7 !default;
+$accordionHighlightColor: #d93c27 !default;
+$accordionHeaderActiveColor: #e3e4e6 !default;
+$accordionHeaderBorderColor: #bbbbbb !default;
+$accordionItemActiveBgColor: #ffffff !default;
+$accordionItemFontColor: #6e6e6e !default;
+$accordionSubBorderColor: #c0c1c2 !default;
+$accordionSubHeaderFontColor: #6e6e6e !default;
 
 /* Help panel */
 
 // theme
 $helpPanelColor: #333 !default;
-$helpPanelBg: #eee !default;
-$helpPanelBtnColor: #333 !default;
-$helpPanelBtnBg: transparent !default;
+$helpPanelBg: #fff !default;
+$helpPanelBtnBg: #eee !default;
+$helpPanelBtnIconColor: #333 !default;
+$helpPanelBtnIconBg: transparent !default;
+$helpPanelBorderColor: #888 !default;
 
 // layout
 $helpPanelWidthDefault: 300px !default;
@@ -89,23 +100,37 @@ $helpPanelBtnIconSize: 28px !default;
 /* Wizard */
 
 // theme
-$WizardNavItemColor: #444 !default;
-$WizardButtonColorHiLight: rgba(255, 255, 255, .8) !default;
-$WizardNextBtnBgColor: #0083d1 !default;
-$WizardNextBtnBdColor: darken($WizardNextBtnBgColor, 1%) !default;
+$WizardNavItemColor: #333 !default;
+$WizardNavItemBgColor: #0084d1 !default;
+$WizardNavItemBdColor: #bbb !default;
+$WizardButtonColorHiLight: #fff !default;
+$WizardBtnTextColor: #333;
+$WizardBtnBgColor: #fff !default;
+$WizardBtnBdColor: #ccc !default;
+$WizardNextBtnBgColor: #0084d1 !default;
+$WizardNextBtnBdColor: #0084d1 !default;
 $WizardNextBtnDisabledBgColor: #ccc !default;
-$WizardNextBtnDisabledBdColor: darken($WizardNextBtnDisabledBgColor, 1%) !default;
-$WizardFinishBtnBgColor: #4b2 !default;
-$WizardFinishBtnBdColor: darken($WizardFinishBtnBgColor, 1%) !default;
+$WizardNextBtnDisabledBdColor: #ccc !default;
+$WizardFinishBtnBgColor: #51b848 !default;
+$WizardFinishBtnBdColor: #51b848 !default;
 $WizardFinishBtnDisabledBgColor: #ccc !default;
-$WizardFinishBtnDisabledBdColor: darken($WizardFinishBtnDisabledBgColor, 1%) !default;
+$WizardFinishBtnDisabledBdColor: #ccc !default;
+$WizardToolbarBgColor: #f5f5f5 !default;
+$WizardToolbarVerticalSeparatorBdColor: #e3e3e3 !default;
+
+$wizard-textarea-border-color: #eee;
 
 // layout
-$wizardHeight: 500px !default;
+$wizardTopPadding: 40px !default;
+$wizardBottomPadding: 40px !default;
+$wizardHeight: 100% !default;
+$wizardWidth: 100% !default;
+$wizardMinHeight: 460px !default;
+$wizardMinWidth: 1024px !default;
 $wizardTitleBarHeight: 70px !default;
 $wizardToolBarHeight: 65px !default;
-$wizardNavWidth: 280px !default;
-$WizardNavItemHeight: 45px !default;
+$wizardNavWidth: 290px !default;
+$WizardNavItemHeight: 46px !default;
 $WizardNavItemWidth: 190px !default;
 $WizardSidePadding: 35px !default;
 $WizardStatusIndicatorSize: 24px !default;
@@ -129,9 +154,7 @@ $table-stripe-bgcolor: #f9f9f9 !default;
 /* Tooltip */
 $tooltip-bg-color: #fefefe !default;
 $tooltip-border: solid 1px #bcbcbc !default;
-$tooltip-border-radius: 0 !default;
 $tooltip-box-shadow: 1px 1px 8px -3px #cccccc !default;
-$tooltip-font-color: #000000 !default;
 $tooltip-key-color: #000000 !default;
 $tooltip-key-padding: 0 0.2em !default;
 $tooltip-key-weight: 600 !default;
@@ -140,9 +163,13 @@ $tooltip-padding: 0.3em 0.8em !default;
 /* Transfer Tables */
 $badge-info-color: #0084d1 !default;
 $invalid-color: #f0ad4e !default;
-$invalid-tooltip-color: #333333 !default;
 $transfer-btn-width: 3em !default;
-$transfer-section-bg: #fefefe !default;
+$transfer-help-text-color: #999999 !default;
+$transfer-btn-border-color: #666666 !default;
+$transfer-disabled-btn-color: #cccccc !default;
+$transfer-disabled-btn-border-color: #cecece !default;
+$transfer-header-bottom-border: 1px solid #eeeeee !default;
+$placeholder-text-color: #b8b8b8 !default;
 
 /* Pie Chart */
 $chart-title-font-size: 1.1em !default;
@@ -150,3 +177,9 @@ $chart-title-padding: 0.5em 0 !default;
 $chart-title-weight: 600 !default;
 $chart-legend-font-size: 1em !default;
 $chart-legend-padding: 0.2em 1.5em !default;
+
+/* Metadata Display */
+$metadata-display-selector-color: $link-color !default;
+$metadata-display-selector-hover-color: $link-hover-color !default;
+$metadata-display-selector-active-color: #666 !default;
+$metadata-display-separator-color: #ccc !default;

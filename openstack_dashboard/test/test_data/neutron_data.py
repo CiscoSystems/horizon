@@ -161,7 +161,10 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
+
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -175,7 +178,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
@@ -190,7 +195,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -238,7 +245,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
 
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
@@ -350,7 +359,9 @@ def data(TEST):
                  'name': '',
                  'network_id': TEST.networks.get(name="ext_net")['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': '1'}
+                 'tenant_id': '1',
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -959,7 +970,12 @@ def data(TEST):
                 'description': 'firewall description',
                 'status': 'PENDING_CREATE',
                 'shared': True,
-                'admin_state_up': True}
+                'admin_state_up': True,
+                # Cisco firewall port_id extension
+                # This port is for router_interface
+                'port_id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                # Cisco firewall direction extension
+                'direction': 'inside'}
     TEST.api_firewalls.add(fw1_dict)
 
     fw1 = fwaas.Firewall(copy.deepcopy(fw1_dict))
@@ -975,7 +991,12 @@ def data(TEST):
                 'description': '',
                 'status': 'PENDING_CREATE',
                 'shared': True,
-                'admin_state_up': True}
+                'admin_state_up': True,
+                # Cisco firewall port_id extension
+                # This port is for router_interface
+                'port_id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                # Cisco firewall direction extension
+                'direction': 'outside'}
     TEST.api_firewalls.add(fw1_dict)
 
     fw2 = fwaas.Firewall(copy.deepcopy(fw2_dict))
@@ -1142,6 +1163,8 @@ def data(TEST):
                  'name': 'port5',
                  'network_id': TEST.networks.get(name="net4")['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': TEST.networks.get(name="net4")['tenant_id']}
+                 'tenant_id': TEST.networks.get(name="net4")['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))

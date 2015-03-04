@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 21:49-0600\n"
-"PO-Revision-Date: 2015-02-26 05:10+0000\n"
-"Last-Translator: Bineet kumar gaur <bineetkumar@live.in>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475
 msgid "Other"
 msgstr "अन्य"
 
@@ -80,7 +80,7 @@ msgid "Submit"
 msgstr "जमा करें"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:232
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "रद्द करें"
@@ -88,8 +88,6 @@ msgstr "रद्द करें"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -110,10 +108,6 @@ msgstr "%(action)s %(data_type)s"
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
-
-#: tables/actions.py:803 tables/base.py:1570
-msgid "N/A"
-msgstr "लागू नहीं"
 
 #: tables/actions.py:832
 #, python-format
@@ -172,6 +166,10 @@ msgstr "इस आइडी \"%s\" के लिए कोई मेल नह�
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
+
+#: tables/base.py:1570
+msgid "N/A"
+msgstr "लागू नहीं"
 
 #: templates/_header.html:5
 #, python-format
@@ -309,44 +307,7 @@ msgstr "वॉल्यूम"
 msgid "Volume Storage"
 msgstr "खंड भंडारण"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:12
-msgid ""
-"\n"
-"        You can specify metadata by adding items from the left column to\n"
-"        the right column. You may select the metadata added to glance\n"
-"        dictionary or you can use the \"Other\" option using a key of\n"
-"        your choice.\n"
-"      "
-msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
-
 #: templates/horizon/common/_modal_form_update_metadata.html:26
-msgid "Available Metadata"
-msgstr "उपलब्ध मेटाडाटा"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:56
-msgid "Duplicate keys are not allowed"
-msgstr "एक जैसे कुंजी की अनुमति नहीं है"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:193
-msgid "No available metadata"
-msgstr "कोई मेटाडेटा उपलब्ध नहीं है"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:95
-msgid "Existing Metadata"
-msgstr "मौजूदा मेटाडाटा "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:209
-msgid ""
-"\n"
-"          You can specify resource metadata by moving items from the left\n"
-"          column to the right column. In the left columns there are metadata\n"
-"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
-"          to add metadata with the key of your choice.\n"
-"        "
-msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर स्रोत मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "सहेजें"
@@ -423,27 +384,27 @@ msgstr "अगला"
 msgid "Horizon"
 msgstr "होरिजन"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:144
+#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "कोई सीमा नहीं"
 
-#: templatetags/horizon.py:136 templatetags/horizon.py:138
+#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "उपलब्ध"
 
-#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:51 templatetags/sizeformat.py:56
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d बाइट"
 msgstr[1] "%(size)d बाइट"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s KB"
 msgstr "%s केबी"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
@@ -453,17 +414,17 @@ msgstr "%s MB"
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:66
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:68
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:77
+#: templatetags/sizeformat.py:74
 msgid "0 Bytes"
 msgstr "0 बाइट"
 
@@ -489,21 +450,25 @@ msgstr "जाली"
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: utils/validators.py:23 utils/validators.py:47
+#: utils/validators.py:26 utils/validators.py:50
 msgid "Not a valid port number"
 msgstr "वैध पोर्ट संख्या नहीं है"
 
-#: utils/validators.py:28
+#: utils/validators.py:31
 msgid "Not a valid IP protocol number"
 msgstr "वैध IP प्रोटोकॉल संख्या नहीं है"
 
-#: utils/validators.py:42
+#: utils/validators.py:45
 msgid "One colon allowed in port range"
 msgstr "पोर्ट श्रेणी में एक कॉलन की अनुमति "
 
-#: utils/validators.py:49
+#: utils/validators.py:52
 msgid "Port number must be integer"
 msgstr "पोर्ट संख्या में एक पूर्णांक होना चाहिये"
+
+#: utils/validators.py:59
+msgid "The string may only contain ASCII printable characters."
+msgstr ""
 
 #: workflows/base.py:71
 msgid "Processing..."
