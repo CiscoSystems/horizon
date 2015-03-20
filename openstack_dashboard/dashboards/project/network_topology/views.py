@@ -264,6 +264,25 @@ class JSONView(View):
                               ports)
         return ports
 
+    def _get_router_ports(self, request, routers):
+        ports = []
+        for router in routers:
+            try:
+                neutron_ports = api.neutron.router_get_interfaces(
+                    request, router['id'])
+            except Exception:
+                neutron_ports = []
+            ports += [{'id': port.id,
+                       'network_id': port.network_id,
+                       'device_id': router['id'],
+                       'fixed_ips': port.fixed_ips,
+                       'device_owner': port.type,
+                       'status': port.status}
+                      for port in neutron_ports]
+            self.add_resource_url('horizon:project:networks:ports:detail',
+                                  ports)
+        return ports
+
     def _prepare_gateway_ports(self, routers, ports):
         # user can't see port on external network. so we are
         # adding fake port based on router information
@@ -286,10 +305,14 @@ class JSONView(View):
             ports.append(fake_port)
 
     def get(self, request, *args, **kwargs):
+        routers = self._get_routers(request)
+        router_ports = self._get_router_ports(request, routers)
+        ports = self._get_ports(request) + router_ports
+
         data = {'servers': self._get_servers(request),
                 'networks': self._get_networks(request),
-                'ports': self._get_ports(request),
-                'routers': self._get_routers(request)}
+                'ports': ports,
+                'routers': routers}
         self._prepare_gateway_ports(data['routers'], data['ports'])
         json_string = json.dumps(data, ensure_ascii=False)
         return HttpResponse(json_string, content_type='text/json')

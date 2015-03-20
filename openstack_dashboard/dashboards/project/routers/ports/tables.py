@@ -74,8 +74,11 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             router_id = self.table.kwargs['router_id']
-            port = api.neutron.port_get(request, obj_id)
-            if port['device_owner'] == 'network:router_gateway':
+            spec = {'id': [obj_id]}
+            port = api.neutron.router_get_interfaces(
+                request, router_id, **spec)[0]
+
+            if port.type == 'network:router_gateway':
                 api.neutron.router_remove_gateway(request, router_id)
             else:
                 api.neutron.router_remove_interface(request,

@@ -46,7 +46,11 @@ class RouterDetailTabs(tabs.TabGroup):
         else:
             self.router = api.neutron.router_get(request, rid)
         try:
-            self.ports = api.neutron.port_list(request, device_id=rid)
+            self.ports = api.neutron.router_get_interfaces(request, rid)
+            # We extract the port type and set it as the device_owner for
+            # backward compatibility
+            for port in self.ports:
+                port.device_owner = port.type
         except Exception:
             self.ports = []
             msg = _('Unable to retrieve router details.')

@@ -887,6 +887,22 @@ def router_remove_interface(request, router_id, subnet_id=None, port_id=None):
     neutronclient(request).remove_interface_router(router_id, body)
 
 
+def router_get_interfaces(request, router_id, **params):
+    router_ports = neutronclient(request).get_router_interfaces(
+        router_id, **params).get('routerports', [])
+    # Returned routerports is a list of the format: {'type': <type>,
+    # 'tenant_id': <tenant id of router>, 'router_id: <id of router>,
+    #  'port' <port dict>}. We extract the type and add it as a type in the
+    # port dict. We set the tenant_id of the port to the router owner.
+    ports = []
+    for item in router_ports:
+        port = item['port']
+        port['type'] = item['type']
+        port['tenant_id'] = item['tenant_id']
+        ports.append(port)
+    return [Port(p) for p in ports]
+
+
 def router_add_gateway(request, router_id, network_id):
     body = {'network_id': network_id}
     neutronclient(request).add_gateway_router(router_id, body)
