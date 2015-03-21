@@ -970,7 +970,12 @@ def data(TEST):
                 'description': 'firewall description',
                 'status': 'PENDING_CREATE',
                 'shared': True,
-                'admin_state_up': True}
+                'admin_state_up': True,
+                # Cisco firewall port_id extension
+                # This port is for router_interface
+                'port_id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                # Cisco firewall direction extension
+                'direction': 'inside'}
     TEST.api_firewalls.add(fw1_dict)
 
     fw1 = fwaas.Firewall(copy.deepcopy(fw1_dict))
@@ -986,7 +991,12 @@ def data(TEST):
                 'description': '',
                 'status': 'PENDING_CREATE',
                 'shared': True,
-                'admin_state_up': True}
+                'admin_state_up': True,
+                # Cisco firewall port_id extension
+                # This port is for router_interface
+                'port_id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                # Cisco firewall direction extension
+                'direction': 'outside'}
     TEST.api_firewalls.add(fw1_dict)
 
     fw2 = fwaas.Firewall(copy.deepcopy(fw2_dict))

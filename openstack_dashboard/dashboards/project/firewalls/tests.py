@@ -302,8 +302,9 @@ class FirewallTests(test.TestCase):
         self.assertFormErrors(res, 1)
 
     @test.create_stubs({api.fwaas: ('firewall_create',
-                                    'policy_list_for_tenant'), })
-    def test_add_firewall_post(self):
+                                    'policy_list_for_tenant'),
+                        api.neutron: ('port_get', 'router_get', 'port_list')})
+    def test_add_firewall_post(self, firewall_provider=False):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
         tenant_id = self.tenant.id
@@ -313,6 +314,23 @@ class FirewallTests(test.TestCase):
                      'shared': firewall.shared,
                      'admin_state_up': firewall.admin_state_up
                      }
+
+        if firewall_provider:
+            form_data['port_id'] = firewall.port_id
+            form_data['direction'] = firewall.direction
+
+            ports = self.ports.list()
+            for port in ports:
+                if port.id == firewall.port_id:
+                    break
+            api.neutron.port_get(IsA(http.HttpRequest),
+                                 port.id).AndReturn(port)
+            router = self.routers.first()
+            api.neutron.router_get(IsA(http.HttpRequest),
+                                   port.device_id).AndReturn(router)
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  tenant_id=tenant_id).AndReturn([port])
+
         api.fwaas.policy_list_for_tenant(
             IsA(http.HttpRequest), tenant_id).AndReturn(policies)
         api.fwaas.firewall_create(
@@ -325,9 +343,15 @@ class FirewallTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'firewall_provider': 'cisco'})
+    def test_cisco_test_add_firewall_post(self):
+        self.test_add_firewall_post(firewall_provider=True)
+
     @test.create_stubs({api.fwaas: ('firewall_create',
-                                    'policy_list_for_tenant'), })
-    def test_add_firewall_post_with_error(self):
+                                    'policy_list_for_tenant'),
+                        api.neutron: ('port_get', 'router_get', 'port_list')})
+    def test_add_firewall_post_with_error(self, firewall_provider=False):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
         tenant_id = self.tenant.id
@@ -337,6 +361,23 @@ class FirewallTests(test.TestCase):
                      'shared': firewall.shared,
                      'admin_state_up': firewall.admin_state_up
                      }
+
+        if firewall_provider:
+            form_data['port_id'] = firewall.port_id
+            form_data['direction'] = firewall.direction
+
+            ports = self.ports.list()
+            for port in ports:
+                if port.id == firewall.port_id:
+                    break
+            api.neutron.port_get(IsA(http.HttpRequest),
+                                 port.id).AndReturn(port)
+            router = self.routers.first()
+            api.neutron.router_get(IsA(http.HttpRequest),
+                                   port.device_id).AndReturn(router)
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  tenant_id=tenant_id).AndReturn([port])
+
         api.fwaas.policy_list_for_tenant(
             IsA(http.HttpRequest), tenant_id).AndReturn(policies)
 
@@ -345,6 +386,11 @@ class FirewallTests(test.TestCase):
         res = self.client.post(reverse(self.ADDFIREWALL_PATH), form_data)
 
         self.assertFormErrors(res, 1)
+
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'firewall_provider': 'cisco'})
+    def test_cisco_add_firewall_post_with_error(self):
+        self.test_add_firewall_post_with_error(firewall_provider=True)
 
     @test.create_stubs({api.fwaas: ('rule_get',)})
     def test_update_rule_get(self):
@@ -497,8 +543,9 @@ class FirewallTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.fwaas: ('firewall_get', 'policy_list_for_tenant')})
-    def test_update_firewall_get(self):
+    @test.create_stubs({api.fwaas: ('firewall_get', 'policy_list_for_tenant'),
+                        api.neutron: ('port_get', 'router_get', 'port_list')})
+    def test_update_firewall_get(self, firewall_provider=False):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
         tenant_id = self.tenant.id
@@ -509,6 +556,19 @@ class FirewallTests(test.TestCase):
         api.fwaas.firewall_get(IsA(http.HttpRequest),
                                firewall.id).AndReturn(firewall)
 
+        if firewall_provider:
+            ports = self.ports.list()
+            for port in ports:
+                if port.id == firewall.port_id:
+                    break
+            api.neutron.port_get(IsA(http.HttpRequest),
+                                 port.id).AndReturn(port)
+            router = self.routers.first()
+            api.neutron.router_get(IsA(http.HttpRequest),
+                                   port.device_id).AndReturn(router)
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  tenant_id=tenant_id).AndReturn([port])
+
         self.mox.ReplayAll()
 
         res = self.client.get(
@@ -516,9 +576,15 @@ class FirewallTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/firewalls/updatefirewall.html')
 
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'firewall_provider': 'cisco'})
+    def test_cisco_update_firewall_get(self):
+        self.test_update_firewall_get(firewall_provider=True)
+
     @test.create_stubs({api.fwaas: ('firewall_get', 'policy_list_for_tenant',
-                                    'firewall_update')})
-    def test_update_firewall_post(self):
+                                    'firewall_update'),
+                        api.neutron: ('port_get', 'router_get', 'port_list')})
+    def test_update_firewall_post(self, firewall_provider=False):
         firewall = self.firewalls.first()
         tenant_id = self.tenant.id
         api.fwaas.firewall_get(IsA(http.HttpRequest),
@@ -529,6 +595,22 @@ class FirewallTests(test.TestCase):
                 'firewall_policy_id': firewall.firewall_policy_id,
                 'admin_state_up': False
                 }
+
+        if firewall_provider:
+            data['port_id'] = firewall.port_id
+            data['direction'] = firewall.direction
+
+            ports = self.ports.list()
+            for port in ports:
+                if port.id == firewall.port_id:
+                    break
+            api.neutron.port_get(IsA(http.HttpRequest),
+                                 port.id).AndReturn(port)
+            router = self.routers.first()
+            api.neutron.router_get(IsA(http.HttpRequest),
+                                   port.device_id).AndReturn(router)
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  tenant_id=tenant_id).AndReturn([port])
 
         policies = self.fw_policies.list()
         api.fwaas.policy_list_for_tenant(
@@ -544,6 +626,11 @@ class FirewallTests(test.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'firewall_provider': 'cisco'})
+    def test_cisco_update_firewall_post(self):
+        self.test_update_firewall_post(firewall_provider=True)
 
     @test.create_stubs({api.fwaas: ('policy_get', 'policy_insert_rule',
                                     'rule_list_for_tenant', 'rule_get')})

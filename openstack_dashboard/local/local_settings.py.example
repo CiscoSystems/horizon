@@ -217,6 +217,10 @@ OPENSTACK_NEUTRON_NETWORK = {
     # Network types include local, flat, vlan, gre, and vxlan.
     'supported_provider_types': ['*'],
 
+    # Set which FWaaS provider is supported.
+    'firewall_provider': None,
+    #'firewall_provider': 'cisco',
+
     # Set which VNIC types are supported for port binding. Only the VNIC
     # types in this list will be available to choose from when creating a
     # port.
